@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 enum ApplianceCompany {
   samsung,
   sharp,
@@ -17,29 +15,8 @@ enum ApplianceCompany {
   electra,
   tornado;
 
+  // Get the path for the logo image based on the company type
   String get logoPath => 'assets/companies/${name.toLowerCase()}_logo.png';
-
-  // String get logoPath {
-  //   return switch (this) {
-  //     ApplianceCompany.samsung => getImageUrl('samsung'),
-  //     ApplianceCompany.sharp => getImageUrl('sharp'),
-  //     ApplianceCompany.bosch => getImageUrl('bosch'),
-  //     ApplianceCompany.miele => getImageUrl('miele'),
-  //     ApplianceCompany.electrolux => getImageUrl('electrolux'),
-  //     ApplianceCompany.whirlpool => getImageUrl('whirlpool'),
-  //     ApplianceCompany.lg => getImageUrl('lg'),
-  //     ApplianceCompany.haier => getImageUrl('haier'),
-  //     ApplianceCompany.beko => getImageUrl('beko'),
-  //     ApplianceCompany.toshiba => getImageUrl('toshiba'),
-  //     ApplianceCompany.hisense => getImageUrl('hisense'),
-  //     ApplianceCompany.amcor => getImageUrl('amcor'),
-  //     ApplianceCompany.mitsubishi => getImageUrl('mitsubishi'),
-  //     ApplianceCompany.electra => getImageUrl('electra'),
-  //     ApplianceCompany.tornado => getImageUrl('tornado'),
-  //   };
-  // }
-
-  // String getImageUrl(String company) => 'assets/companies/${company}_logo.png';
 
   // Get company name in English or Hebrew based on the locale
   String get companyName {

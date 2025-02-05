@@ -1,5 +1,5 @@
 {
-    "Refrigerators": {
+    "refrigerators": {
         "Samsung": {
             "OF": "The refrigerator is in 'Demo' mode, where cooling is turned off to save power. To exit this mode, disconnect the refrigerator from power and reconnect it, or press the 'Energy Saver' and 'Freezer' buttons together for 3 seconds.",
             "PC": "Disconnection between the door and the main cooling unit. Check that the door is properly closed and that there are no disconnected cables around it. If there are cables that can be connected, disconnect the refrigerator from power, connect the cables, and then reconnect the power.",
@@ -93,7 +93,7 @@
             "rS": "Short circuit or disconnection of the refrigerator sensor. A technician should be called."
         }
     },
-    "Ovens": {
+    "ovens": {
         "Haier": {
             "E1": "NTC sensor in an open circuit. The sensor may be loose or disconnected. It is recommended to contact a professional repair station.",
             "E2": "Short circuit in the sensor. The sensor may be damaged. Please contact a professional repair station.",
@@ -177,7 +177,7 @@
             "E5121": "Steam system malfunction. There may be an issue with the water tank or water pump."
         }
     },
-    "Tumble Dryers": {
+    "tumble_dryers": {
         "Haier": {
             "F2": "Drain pump error. There may be an issue with the drain pump or a blockage in the drainage system. It is recommended to contact customer service.",
             "F32": "The thermal sensor of the capacitor is in an open or short circuit. The sensor may be faulty, or there may be a wiring issue. It is recommended to contact customer service.",
@@ -334,7 +334,7 @@
             "E10": "Door sensor issue. Ensure the door is properly closed and the sensor is functioning correctly."
         }
     },
-    "Washing Machines": {
+    "washing_machines": {
         "Hisense": {
             "F01": "Water flow issue. Check that the tap is open, the water pressure is normal, and the hose is not bent or blocked. Also, ensure that the filter in the water supply hose is clean.",
             "F03": "Water drainage issue. Check that the hose is not bent or blocked, and that the filter in the drainage hose is clean. Additionally, ensure the hose is not frozen.",
@@ -566,7 +566,7 @@
             "F67": "Control board issue. The board may have overheated or be faulty."
         }
     },
-    "Air Conditioners": {
+    "air_conditioners": {
         "Samsung": {
             "E101": "The outdoor unit is not responding to the indoor unit for more than one minute. Check the proper connection of the power and control cables between the units, and ensure there are no shorts in the wires.",
             "E121": "Room temperature sensor error. Check the sensor connection to the control board. If the connection is correct, measure the sensor resistance; at 25°C, the resistance should be 10±3% kilo-ohms. If the value is different, replace the sensor.",
