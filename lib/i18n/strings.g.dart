@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 0 (0 per locale)
+/// Strings: 2 (1 per locale)
 ///
-/// Built on 2025-02-05 at 12:10 UTC
+/// Built on 2025-02-05 at 14:08 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -148,6 +148,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final Translations _root = this; // ignore: unused_field
 
 	// Translations
+	String get welcome => 'ברוך הבא';
 }
 
 // Path: <root>
@@ -174,6 +175,7 @@ class _StringsEn implements Translations {
 	@override late final _StringsEn _root = this; // ignore: unused_field
 
 	// Translations
+	@override String get welcome => 'Welcome';
 }
 
 /// Flat map(s) containing all translations.
@@ -182,6 +184,7 @@ class _StringsEn implements Translations {
 extension on Translations {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
+			case 'welcome': return 'ברוך הבא';
 			default: return null;
 		}
 	}
@@ -190,6 +193,7 @@ extension on Translations {
 extension on _StringsEn {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
+			case 'welcome': return 'Welcome';
 			default: return null;
 		}
 	}
