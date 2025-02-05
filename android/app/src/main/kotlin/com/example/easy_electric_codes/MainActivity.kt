@@ -1,4 +1,4 @@
-package com.example.easy_electric_codes
+package com.KHEasyDev.easy_electric_codes
 
 import io.flutter.embedding.android.FlutterActivity
 
