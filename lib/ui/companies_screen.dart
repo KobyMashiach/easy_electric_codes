@@ -1,3 +1,5 @@
+import 'package:easy_electric_codes/core/text_styles.dart';
+import 'package:easy_electric_codes/i18n/strings.g.dart';
 import 'package:easy_electric_codes/models/appliance_model/appliance_model.dart';
 import 'package:easy_electric_codes/models/product_type_model/product_type_model.dart';
 import 'package:easy_electric_codes/widgets/design/general/carousel_widgets.dart';
@@ -19,10 +21,17 @@ class CompaniesScreen extends StatelessWidget {
     return Scaffold(
       appBar: appAppBar(title: productType.productType.productName),
       body: Center(
-        child: Row(
+        child: Column(
           children: [
-            Expanded(child: _buildCarousel(firstHalf)),
-            Expanded(child: _buildCarousel(secondHalf)),
+            Text(t.choose_company, style: AppTextStyle().title),
+            Expanded(
+              child: Row(
+                children: [
+                  Expanded(child: _buildCarousel(firstHalf)),
+                  Expanded(child: _buildCarousel(secondHalf)),
+                ],
+              ),
+            ),
           ],
         ),
       ),
