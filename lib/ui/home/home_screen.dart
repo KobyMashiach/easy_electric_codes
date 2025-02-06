@@ -1,12 +1,16 @@
+import 'package:easy_electric_codes/core/colors.dart';
 import 'package:easy_electric_codes/core/global_vars.dart';
 import 'package:easy_electric_codes/core/text_styles.dart';
 import 'package:easy_electric_codes/i18n/strings.g.dart';
 import 'package:easy_electric_codes/models/product_type_model/product_type_model.dart';
+import 'package:easy_electric_codes/ui/companies_screen.dart';
 import 'package:easy_electric_codes/ui/home/bloc/home_screen_bloc.dart';
+import 'package:easy_electric_codes/widgets/design/general/carousel_widgets.dart';
 import 'package:easy_electric_codes/widgets/general/appbar.dart';
 import 'package:easy_electric_codes/widgets/general/circular_progress_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:kh_easy_dev/services/navigate_page.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -17,7 +21,17 @@ class HomeScreen extends StatelessWidget {
       create: (context) =>
           HomeScreenBloc()..add(const HomeScreenEvent.initialize()),
       child: BlocConsumer<HomeScreenBloc, HomeScreenState>(
-        listener: (context, state) {},
+        listenWhen: (previous, current) => current.maybeWhen(
+            navToCompaniesScreen: (e) => true, orElse: () => false),
+        buildWhen: (previous, current) => current.maybeWhen(
+            navToCompaniesScreen: (e) => false, orElse: () => true),
+        listener: (context, state) {
+          state.maybeWhen(
+              navToCompaniesScreen: (productType) => KheasydevNavigatePage()
+                  .pushDuration(
+                      context, CompaniesScreen(productType: productType)),
+              orElse: () {});
+        },
         builder: (context, state) {
           final bloc = context.read<HomeScreenBloc>();
           return Scaffold(
@@ -33,7 +47,9 @@ class HomeScreen extends StatelessWidget {
                         flexWeights: const [1, 2, 1],
                         itemSnapping: true,
                         scrollDirection: Axis.vertical,
-                        onTap: (index) async {},
+                        onTap: (index) => bloc.add(
+                            HomeScreenEvent.navToCompaniesScreen(
+                                productType: globalProductsEN[index])),
                         children: carouselChildren(),
                       ),
                     )
@@ -55,73 +71,16 @@ class HomeScreen extends StatelessWidget {
           Container(
             width: double.infinity,
             height: double.infinity,
-            color: Colors.primaries[i % 17],
+            color: AppColors.primaryColor,
+            // color: Colors.primaries[i % 17],
             child: Image.asset(
               productType.productType.logoPath,
             ),
           ),
           whiteShadow(),
-          Positioned(
-            bottom: 10,
-            left: 10,
-            right: 10,
-            child: Center(
-              child: textWithBorder(text: productType.productType.productName),
-            ),
-          ),
+          textWithBorder(text: productType.productType.productName),
         ],
       );
     });
-  }
-
-  Positioned whiteShadow() {
-    return Positioned(
-      bottom: 0,
-      left: 0,
-      right: 0,
-      child: Container(
-        height: 100,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              Colors.white.withValues(alpha: 0),
-              Colors.white.withValues(alpha: 0.8),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  FittedBox textWithBorder({required String text}) {
-    return FittedBox(
-      child: Row(
-        children: [
-          Stack(
-            children: [
-              Text(
-                text,
-                style: AppTextStyle().cardDescription.copyWith(
-                      foreground: Paint()
-                        ..style = PaintingStyle.stroke
-                        ..strokeWidth = 2
-                        ..color = Colors.white,
-                    ),
-                textAlign: TextAlign.center,
-              ),
-              Text(
-                text,
-                style: AppTextStyle().cardDescription.copyWith(
-                      color: Colors.black,
-                    ),
-                textAlign: TextAlign.center,
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
   }
 }

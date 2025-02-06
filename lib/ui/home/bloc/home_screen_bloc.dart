@@ -29,6 +29,8 @@ class HomeScreenBloc extends Bloc<HomeScreenEvent, HomeScreenState> {
           globalProductsEN = await buildJsonProduct(enJson);
           emit(const HomeScreenState.refreshUI());
         },
+        navToCompaniesScreen: (e) async => emit(
+            HomeScreenState.navToCompaniesScreen(productType: e.productType)),
       );
     });
   }
@@ -43,7 +45,9 @@ class HomeScreenBloc extends Bloc<HomeScreenEvent, HomeScreenState> {
         if (errorCodes is Map<String, dynamic>) {
           companyList.add(ApplianceModel(
             company: ApplianceCompany.values.firstWhere(
-              (e) => e.name == company.toLowerCase(),
+              (e) =>
+                  e.name.toLowerCase().replaceAll('_', '') ==
+                  company.toLowerCase().replaceAll('_', ''),
               orElse: () {
                 log('Unknown company: $company');
                 return ApplianceCompany.samsung;

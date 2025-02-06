@@ -19,32 +19,39 @@ mixin _$HomeScreenEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
+    required TResult Function(ProductTypeModel productType)
+        navToCompaniesScreen,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
+    TResult? Function(ProductTypeModel productType)? navToCompaniesScreen,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
+    TResult Function(ProductTypeModel productType)? navToCompaniesScreen,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialize value) initialize,
+    required TResult Function(_NavToCompaniesScreen value) navToCompaniesScreen,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initialize value)? initialize,
+    TResult? Function(_NavToCompaniesScreen value)? navToCompaniesScreen,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialize value)? initialize,
+    TResult Function(_NavToCompaniesScreen value)? navToCompaniesScreen,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -113,6 +120,8 @@ class _$InitializeImpl implements _Initialize {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
+    required TResult Function(ProductTypeModel productType)
+        navToCompaniesScreen,
   }) {
     return initialize();
   }
@@ -121,6 +130,7 @@ class _$InitializeImpl implements _Initialize {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
+    TResult? Function(ProductTypeModel productType)? navToCompaniesScreen,
   }) {
     return initialize?.call();
   }
@@ -129,6 +139,7 @@ class _$InitializeImpl implements _Initialize {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
+    TResult Function(ProductTypeModel productType)? navToCompaniesScreen,
     required TResult orElse(),
   }) {
     if (initialize != null) {
@@ -141,6 +152,7 @@ class _$InitializeImpl implements _Initialize {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialize value) initialize,
+    required TResult Function(_NavToCompaniesScreen value) navToCompaniesScreen,
   }) {
     return initialize(this);
   }
@@ -149,6 +161,7 @@ class _$InitializeImpl implements _Initialize {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initialize value)? initialize,
+    TResult? Function(_NavToCompaniesScreen value)? navToCompaniesScreen,
   }) {
     return initialize?.call(this);
   }
@@ -157,6 +170,7 @@ class _$InitializeImpl implements _Initialize {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialize value)? initialize,
+    TResult Function(_NavToCompaniesScreen value)? navToCompaniesScreen,
     required TResult orElse(),
   }) {
     if (initialize != null) {
@@ -171,13 +185,172 @@ abstract class _Initialize implements HomeScreenEvent {
 }
 
 /// @nodoc
+abstract class _$$NavToCompaniesScreenImplCopyWith<$Res> {
+  factory _$$NavToCompaniesScreenImplCopyWith(_$NavToCompaniesScreenImpl value,
+          $Res Function(_$NavToCompaniesScreenImpl) then) =
+      __$$NavToCompaniesScreenImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ProductTypeModel productType});
+
+  $ProductTypeModelCopyWith<$Res> get productType;
+}
+
+/// @nodoc
+class __$$NavToCompaniesScreenImplCopyWithImpl<$Res>
+    extends _$HomeScreenEventCopyWithImpl<$Res, _$NavToCompaniesScreenImpl>
+    implements _$$NavToCompaniesScreenImplCopyWith<$Res> {
+  __$$NavToCompaniesScreenImplCopyWithImpl(_$NavToCompaniesScreenImpl _value,
+      $Res Function(_$NavToCompaniesScreenImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of HomeScreenEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? productType = null,
+  }) {
+    return _then(_$NavToCompaniesScreenImpl(
+      productType: null == productType
+          ? _value.productType
+          : productType // ignore: cast_nullable_to_non_nullable
+              as ProductTypeModel,
+    ));
+  }
+
+  /// Create a copy of HomeScreenEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ProductTypeModelCopyWith<$Res> get productType {
+    return $ProductTypeModelCopyWith<$Res>(_value.productType, (value) {
+      return _then(_value.copyWith(productType: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$NavToCompaniesScreenImpl implements _NavToCompaniesScreen {
+  const _$NavToCompaniesScreenImpl({required this.productType});
+
+  @override
+  final ProductTypeModel productType;
+
+  @override
+  String toString() {
+    return 'HomeScreenEvent.navToCompaniesScreen(productType: $productType)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$NavToCompaniesScreenImpl &&
+            (identical(other.productType, productType) ||
+                other.productType == productType));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, productType);
+
+  /// Create a copy of HomeScreenEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$NavToCompaniesScreenImplCopyWith<_$NavToCompaniesScreenImpl>
+      get copyWith =>
+          __$$NavToCompaniesScreenImplCopyWithImpl<_$NavToCompaniesScreenImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
+    required TResult Function(ProductTypeModel productType)
+        navToCompaniesScreen,
+  }) {
+    return navToCompaniesScreen(productType);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
+    TResult? Function(ProductTypeModel productType)? navToCompaniesScreen,
+  }) {
+    return navToCompaniesScreen?.call(productType);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function(ProductTypeModel productType)? navToCompaniesScreen,
+    required TResult orElse(),
+  }) {
+    if (navToCompaniesScreen != null) {
+      return navToCompaniesScreen(productType);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialize value) initialize,
+    required TResult Function(_NavToCompaniesScreen value) navToCompaniesScreen,
+  }) {
+    return navToCompaniesScreen(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initialize value)? initialize,
+    TResult? Function(_NavToCompaniesScreen value)? navToCompaniesScreen,
+  }) {
+    return navToCompaniesScreen?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialize value)? initialize,
+    TResult Function(_NavToCompaniesScreen value)? navToCompaniesScreen,
+    required TResult orElse(),
+  }) {
+    if (navToCompaniesScreen != null) {
+      return navToCompaniesScreen(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NavToCompaniesScreen implements HomeScreenEvent {
+  const factory _NavToCompaniesScreen(
+          {required final ProductTypeModel productType}) =
+      _$NavToCompaniesScreenImpl;
+
+  ProductTypeModel get productType;
+
+  /// Create a copy of HomeScreenEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$NavToCompaniesScreenImplCopyWith<_$NavToCompaniesScreenImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$HomeScreenState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() refreshUI,
-    required TResult Function(String message) message,
+    required TResult Function(ProductTypeModel productType)
+        navToCompaniesScreen,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -185,7 +358,7 @@ mixin _$HomeScreenState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? refreshUI,
-    TResult? Function(String message)? message,
+    TResult? Function(ProductTypeModel productType)? navToCompaniesScreen,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -193,7 +366,7 @@ mixin _$HomeScreenState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? refreshUI,
-    TResult Function(String message)? message,
+    TResult Function(ProductTypeModel productType)? navToCompaniesScreen,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -202,7 +375,8 @@ mixin _$HomeScreenState {
     required TResult Function(HomeScreenInitial value) initial,
     required TResult Function(HomeScreenLoading value) loading,
     required TResult Function(HomeScreenRefreshUI value) refreshUI,
-    required TResult Function(HomeScreenMessage value) message,
+    required TResult Function(HomeScreenNavToCompaniesScreen value)
+        navToCompaniesScreen,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -210,7 +384,8 @@ mixin _$HomeScreenState {
     TResult? Function(HomeScreenInitial value)? initial,
     TResult? Function(HomeScreenLoading value)? loading,
     TResult? Function(HomeScreenRefreshUI value)? refreshUI,
-    TResult? Function(HomeScreenMessage value)? message,
+    TResult? Function(HomeScreenNavToCompaniesScreen value)?
+        navToCompaniesScreen,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -218,7 +393,8 @@ mixin _$HomeScreenState {
     TResult Function(HomeScreenInitial value)? initial,
     TResult Function(HomeScreenLoading value)? loading,
     TResult Function(HomeScreenRefreshUI value)? refreshUI,
-    TResult Function(HomeScreenMessage value)? message,
+    TResult Function(HomeScreenNavToCompaniesScreen value)?
+        navToCompaniesScreen,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -289,7 +465,8 @@ class _$HomeScreenInitialImpl implements HomeScreenInitial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() refreshUI,
-    required TResult Function(String message) message,
+    required TResult Function(ProductTypeModel productType)
+        navToCompaniesScreen,
   }) {
     return initial();
   }
@@ -300,7 +477,7 @@ class _$HomeScreenInitialImpl implements HomeScreenInitial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? refreshUI,
-    TResult? Function(String message)? message,
+    TResult? Function(ProductTypeModel productType)? navToCompaniesScreen,
   }) {
     return initial?.call();
   }
@@ -311,7 +488,7 @@ class _$HomeScreenInitialImpl implements HomeScreenInitial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? refreshUI,
-    TResult Function(String message)? message,
+    TResult Function(ProductTypeModel productType)? navToCompaniesScreen,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -326,7 +503,8 @@ class _$HomeScreenInitialImpl implements HomeScreenInitial {
     required TResult Function(HomeScreenInitial value) initial,
     required TResult Function(HomeScreenLoading value) loading,
     required TResult Function(HomeScreenRefreshUI value) refreshUI,
-    required TResult Function(HomeScreenMessage value) message,
+    required TResult Function(HomeScreenNavToCompaniesScreen value)
+        navToCompaniesScreen,
   }) {
     return initial(this);
   }
@@ -337,7 +515,8 @@ class _$HomeScreenInitialImpl implements HomeScreenInitial {
     TResult? Function(HomeScreenInitial value)? initial,
     TResult? Function(HomeScreenLoading value)? loading,
     TResult? Function(HomeScreenRefreshUI value)? refreshUI,
-    TResult? Function(HomeScreenMessage value)? message,
+    TResult? Function(HomeScreenNavToCompaniesScreen value)?
+        navToCompaniesScreen,
   }) {
     return initial?.call(this);
   }
@@ -348,7 +527,8 @@ class _$HomeScreenInitialImpl implements HomeScreenInitial {
     TResult Function(HomeScreenInitial value)? initial,
     TResult Function(HomeScreenLoading value)? loading,
     TResult Function(HomeScreenRefreshUI value)? refreshUI,
-    TResult Function(HomeScreenMessage value)? message,
+    TResult Function(HomeScreenNavToCompaniesScreen value)?
+        navToCompaniesScreen,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -406,7 +586,8 @@ class _$HomeScreenLoadingImpl implements HomeScreenLoading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() refreshUI,
-    required TResult Function(String message) message,
+    required TResult Function(ProductTypeModel productType)
+        navToCompaniesScreen,
   }) {
     return loading();
   }
@@ -417,7 +598,7 @@ class _$HomeScreenLoadingImpl implements HomeScreenLoading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? refreshUI,
-    TResult? Function(String message)? message,
+    TResult? Function(ProductTypeModel productType)? navToCompaniesScreen,
   }) {
     return loading?.call();
   }
@@ -428,7 +609,7 @@ class _$HomeScreenLoadingImpl implements HomeScreenLoading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? refreshUI,
-    TResult Function(String message)? message,
+    TResult Function(ProductTypeModel productType)? navToCompaniesScreen,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -443,7 +624,8 @@ class _$HomeScreenLoadingImpl implements HomeScreenLoading {
     required TResult Function(HomeScreenInitial value) initial,
     required TResult Function(HomeScreenLoading value) loading,
     required TResult Function(HomeScreenRefreshUI value) refreshUI,
-    required TResult Function(HomeScreenMessage value) message,
+    required TResult Function(HomeScreenNavToCompaniesScreen value)
+        navToCompaniesScreen,
   }) {
     return loading(this);
   }
@@ -454,7 +636,8 @@ class _$HomeScreenLoadingImpl implements HomeScreenLoading {
     TResult? Function(HomeScreenInitial value)? initial,
     TResult? Function(HomeScreenLoading value)? loading,
     TResult? Function(HomeScreenRefreshUI value)? refreshUI,
-    TResult? Function(HomeScreenMessage value)? message,
+    TResult? Function(HomeScreenNavToCompaniesScreen value)?
+        navToCompaniesScreen,
   }) {
     return loading?.call(this);
   }
@@ -465,7 +648,8 @@ class _$HomeScreenLoadingImpl implements HomeScreenLoading {
     TResult Function(HomeScreenInitial value)? initial,
     TResult Function(HomeScreenLoading value)? loading,
     TResult Function(HomeScreenRefreshUI value)? refreshUI,
-    TResult Function(HomeScreenMessage value)? message,
+    TResult Function(HomeScreenNavToCompaniesScreen value)?
+        navToCompaniesScreen,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -524,7 +708,8 @@ class _$HomeScreenRefreshUIImpl implements HomeScreenRefreshUI {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() refreshUI,
-    required TResult Function(String message) message,
+    required TResult Function(ProductTypeModel productType)
+        navToCompaniesScreen,
   }) {
     return refreshUI();
   }
@@ -535,7 +720,7 @@ class _$HomeScreenRefreshUIImpl implements HomeScreenRefreshUI {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? refreshUI,
-    TResult? Function(String message)? message,
+    TResult? Function(ProductTypeModel productType)? navToCompaniesScreen,
   }) {
     return refreshUI?.call();
   }
@@ -546,7 +731,7 @@ class _$HomeScreenRefreshUIImpl implements HomeScreenRefreshUI {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? refreshUI,
-    TResult Function(String message)? message,
+    TResult Function(ProductTypeModel productType)? navToCompaniesScreen,
     required TResult orElse(),
   }) {
     if (refreshUI != null) {
@@ -561,7 +746,8 @@ class _$HomeScreenRefreshUIImpl implements HomeScreenRefreshUI {
     required TResult Function(HomeScreenInitial value) initial,
     required TResult Function(HomeScreenLoading value) loading,
     required TResult Function(HomeScreenRefreshUI value) refreshUI,
-    required TResult Function(HomeScreenMessage value) message,
+    required TResult Function(HomeScreenNavToCompaniesScreen value)
+        navToCompaniesScreen,
   }) {
     return refreshUI(this);
   }
@@ -572,7 +758,8 @@ class _$HomeScreenRefreshUIImpl implements HomeScreenRefreshUI {
     TResult? Function(HomeScreenInitial value)? initial,
     TResult? Function(HomeScreenLoading value)? loading,
     TResult? Function(HomeScreenRefreshUI value)? refreshUI,
-    TResult? Function(HomeScreenMessage value)? message,
+    TResult? Function(HomeScreenNavToCompaniesScreen value)?
+        navToCompaniesScreen,
   }) {
     return refreshUI?.call(this);
   }
@@ -583,7 +770,8 @@ class _$HomeScreenRefreshUIImpl implements HomeScreenRefreshUI {
     TResult Function(HomeScreenInitial value)? initial,
     TResult Function(HomeScreenLoading value)? loading,
     TResult Function(HomeScreenRefreshUI value)? refreshUI,
-    TResult Function(HomeScreenMessage value)? message,
+    TResult Function(HomeScreenNavToCompaniesScreen value)?
+        navToCompaniesScreen,
     required TResult orElse(),
   }) {
     if (refreshUI != null) {
@@ -598,20 +786,25 @@ abstract class HomeScreenRefreshUI implements HomeScreenState {
 }
 
 /// @nodoc
-abstract class _$$HomeScreenMessageImplCopyWith<$Res> {
-  factory _$$HomeScreenMessageImplCopyWith(_$HomeScreenMessageImpl value,
-          $Res Function(_$HomeScreenMessageImpl) then) =
-      __$$HomeScreenMessageImplCopyWithImpl<$Res>;
+abstract class _$$HomeScreenNavToCompaniesScreenImplCopyWith<$Res> {
+  factory _$$HomeScreenNavToCompaniesScreenImplCopyWith(
+          _$HomeScreenNavToCompaniesScreenImpl value,
+          $Res Function(_$HomeScreenNavToCompaniesScreenImpl) then) =
+      __$$HomeScreenNavToCompaniesScreenImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String message});
+  $Res call({ProductTypeModel productType});
+
+  $ProductTypeModelCopyWith<$Res> get productType;
 }
 
 /// @nodoc
-class __$$HomeScreenMessageImplCopyWithImpl<$Res>
-    extends _$HomeScreenStateCopyWithImpl<$Res, _$HomeScreenMessageImpl>
-    implements _$$HomeScreenMessageImplCopyWith<$Res> {
-  __$$HomeScreenMessageImplCopyWithImpl(_$HomeScreenMessageImpl _value,
-      $Res Function(_$HomeScreenMessageImpl) _then)
+class __$$HomeScreenNavToCompaniesScreenImplCopyWithImpl<$Res>
+    extends _$HomeScreenStateCopyWithImpl<$Res,
+        _$HomeScreenNavToCompaniesScreenImpl>
+    implements _$$HomeScreenNavToCompaniesScreenImplCopyWith<$Res> {
+  __$$HomeScreenNavToCompaniesScreenImplCopyWithImpl(
+      _$HomeScreenNavToCompaniesScreenImpl _value,
+      $Res Function(_$HomeScreenNavToCompaniesScreenImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of HomeScreenState
@@ -619,49 +812,62 @@ class __$$HomeScreenMessageImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? message = null,
+    Object? productType = null,
   }) {
-    return _then(_$HomeScreenMessageImpl(
-      message: null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
+    return _then(_$HomeScreenNavToCompaniesScreenImpl(
+      productType: null == productType
+          ? _value.productType
+          : productType // ignore: cast_nullable_to_non_nullable
+              as ProductTypeModel,
     ));
+  }
+
+  /// Create a copy of HomeScreenState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ProductTypeModelCopyWith<$Res> get productType {
+    return $ProductTypeModelCopyWith<$Res>(_value.productType, (value) {
+      return _then(_value.copyWith(productType: value));
+    });
   }
 }
 
 /// @nodoc
 
-class _$HomeScreenMessageImpl implements HomeScreenMessage {
-  const _$HomeScreenMessageImpl({required this.message});
+class _$HomeScreenNavToCompaniesScreenImpl
+    implements HomeScreenNavToCompaniesScreen {
+  const _$HomeScreenNavToCompaniesScreenImpl({required this.productType});
 
   @override
-  final String message;
+  final ProductTypeModel productType;
 
   @override
   String toString() {
-    return 'HomeScreenState.message(message: $message)';
+    return 'HomeScreenState.navToCompaniesScreen(productType: $productType)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$HomeScreenMessageImpl &&
-            (identical(other.message, message) || other.message == message));
+            other is _$HomeScreenNavToCompaniesScreenImpl &&
+            (identical(other.productType, productType) ||
+                other.productType == productType));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, message);
+  int get hashCode => Object.hash(runtimeType, productType);
 
   /// Create a copy of HomeScreenState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$HomeScreenMessageImplCopyWith<_$HomeScreenMessageImpl> get copyWith =>
-      __$$HomeScreenMessageImplCopyWithImpl<_$HomeScreenMessageImpl>(
-          this, _$identity);
+  _$$HomeScreenNavToCompaniesScreenImplCopyWith<
+          _$HomeScreenNavToCompaniesScreenImpl>
+      get copyWith => __$$HomeScreenNavToCompaniesScreenImplCopyWithImpl<
+          _$HomeScreenNavToCompaniesScreenImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -669,9 +875,10 @@ class _$HomeScreenMessageImpl implements HomeScreenMessage {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() refreshUI,
-    required TResult Function(String message) message,
+    required TResult Function(ProductTypeModel productType)
+        navToCompaniesScreen,
   }) {
-    return message(this.message);
+    return navToCompaniesScreen(productType);
   }
 
   @override
@@ -680,9 +887,9 @@ class _$HomeScreenMessageImpl implements HomeScreenMessage {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? refreshUI,
-    TResult? Function(String message)? message,
+    TResult? Function(ProductTypeModel productType)? navToCompaniesScreen,
   }) {
-    return message?.call(this.message);
+    return navToCompaniesScreen?.call(productType);
   }
 
   @override
@@ -691,11 +898,11 @@ class _$HomeScreenMessageImpl implements HomeScreenMessage {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? refreshUI,
-    TResult Function(String message)? message,
+    TResult Function(ProductTypeModel productType)? navToCompaniesScreen,
     required TResult orElse(),
   }) {
-    if (message != null) {
-      return message(this.message);
+    if (navToCompaniesScreen != null) {
+      return navToCompaniesScreen(productType);
     }
     return orElse();
   }
@@ -706,9 +913,10 @@ class _$HomeScreenMessageImpl implements HomeScreenMessage {
     required TResult Function(HomeScreenInitial value) initial,
     required TResult Function(HomeScreenLoading value) loading,
     required TResult Function(HomeScreenRefreshUI value) refreshUI,
-    required TResult Function(HomeScreenMessage value) message,
+    required TResult Function(HomeScreenNavToCompaniesScreen value)
+        navToCompaniesScreen,
   }) {
-    return message(this);
+    return navToCompaniesScreen(this);
   }
 
   @override
@@ -717,9 +925,10 @@ class _$HomeScreenMessageImpl implements HomeScreenMessage {
     TResult? Function(HomeScreenInitial value)? initial,
     TResult? Function(HomeScreenLoading value)? loading,
     TResult? Function(HomeScreenRefreshUI value)? refreshUI,
-    TResult? Function(HomeScreenMessage value)? message,
+    TResult? Function(HomeScreenNavToCompaniesScreen value)?
+        navToCompaniesScreen,
   }) {
-    return message?.call(this);
+    return navToCompaniesScreen?.call(this);
   }
 
   @override
@@ -728,25 +937,28 @@ class _$HomeScreenMessageImpl implements HomeScreenMessage {
     TResult Function(HomeScreenInitial value)? initial,
     TResult Function(HomeScreenLoading value)? loading,
     TResult Function(HomeScreenRefreshUI value)? refreshUI,
-    TResult Function(HomeScreenMessage value)? message,
+    TResult Function(HomeScreenNavToCompaniesScreen value)?
+        navToCompaniesScreen,
     required TResult orElse(),
   }) {
-    if (message != null) {
-      return message(this);
+    if (navToCompaniesScreen != null) {
+      return navToCompaniesScreen(this);
     }
     return orElse();
   }
 }
 
-abstract class HomeScreenMessage implements HomeScreenState {
-  const factory HomeScreenMessage({required final String message}) =
-      _$HomeScreenMessageImpl;
+abstract class HomeScreenNavToCompaniesScreen implements HomeScreenState {
+  const factory HomeScreenNavToCompaniesScreen(
+          {required final ProductTypeModel productType}) =
+      _$HomeScreenNavToCompaniesScreenImpl;
 
-  String get message;
+  ProductTypeModel get productType;
 
   /// Create a copy of HomeScreenState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$HomeScreenMessageImplCopyWith<_$HomeScreenMessageImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$HomeScreenNavToCompaniesScreenImplCopyWith<
+          _$HomeScreenNavToCompaniesScreenImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

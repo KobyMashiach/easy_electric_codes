@@ -12,6 +12,8 @@ enum ApplianceCompany {
   hisense,
   amcor,
   mitsubishi,
+  siemens,
+  tadiran,
   electra,
   tornado;
 
@@ -34,6 +36,8 @@ enum ApplianceCompany {
       ApplianceCompany.hisense => 'Hisense',
       ApplianceCompany.amcor => 'Amcor',
       ApplianceCompany.mitsubishi => 'Mitsubishi',
+      ApplianceCompany.siemens => 'Siemens',
+      ApplianceCompany.tadiran => 'Tadiran',
       ApplianceCompany.electra => 'Electra',
       ApplianceCompany.tornado => 'Tornado',
     };
@@ -55,6 +59,8 @@ enum ApplianceCompany {
       ApplianceCompany.hisense => 'היסנס',
       ApplianceCompany.amcor => 'אמקור',
       ApplianceCompany.mitsubishi => 'מיצובישי',
+      ApplianceCompany.siemens => 'סימנס',
+      ApplianceCompany.tadiran => 'תדיראן',
       ApplianceCompany.electra => 'אלקטרה',
       ApplianceCompany.tornado => 'טורנדו',
     };
