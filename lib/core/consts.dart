@@ -1,3 +1,6 @@
+// General
+const languageKey = 'selected_language';
+
 //Jsons
 const heJson = 'assets/data/errors_he.json';
 const enJson = 'assets/data/errors_en.json';

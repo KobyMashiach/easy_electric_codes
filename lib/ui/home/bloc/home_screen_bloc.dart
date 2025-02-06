@@ -17,6 +17,7 @@ import 'package:easy_electric_codes/models/appliance_model/appliance_model.dart'
 import 'package:easy_electric_codes/models/product_type_model/product_type_model.dart';
 import 'package:meta/meta.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 part 'home_screen_bloc.freezed.dart';
 part 'home_screen_event.dart';
@@ -29,9 +30,7 @@ class HomeScreenBloc extends Bloc<HomeScreenEvent, HomeScreenState> {
         initialize: (e) async {
           if (globalProductsHE.isEmpty || globalProductsEN.isEmpty) {
             emit(const HomeScreenState.loading());
-            final deviceLanguage =
-                PlatformDispatcher.instance.locale.languageCode;
-            changeLanguage(LanguageModel.getAppLocale(deviceLanguage));
+            await initLanguage();
             globalProductsHE = await buildJsonProduct(heJson);
             globalProductsEN = await buildJsonProduct(enJson);
             emit(const HomeScreenState.refreshUI());
@@ -41,6 +40,17 @@ class HomeScreenBloc extends Bloc<HomeScreenEvent, HomeScreenState> {
             HomeScreenState.navToCompaniesScreen(productType: e.productType)),
       );
     });
+  }
+
+  Future<void> initLanguage() async {
+    final prefs = await SharedPreferences.getInstance();
+    final savedLanguage = prefs.getString(languageKey);
+    if (savedLanguage == null) {
+      final deviceLanguage = PlatformDispatcher.instance.locale.languageCode;
+      changeLanguage(LanguageModel.getAppLocale(deviceLanguage));
+    } else {
+      changeLanguage(LanguageModel.getAppLocale(savedLanguage));
+    }
   }
 
   Future<List<ProductTypeModel>> buildJsonProduct(String jsonPath) async {
