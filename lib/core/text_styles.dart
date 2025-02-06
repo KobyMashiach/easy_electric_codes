@@ -8,7 +8,7 @@ class AppTextStyle {
   TextStyle get subTitle =>
       const TextStyle(fontSize: 28, fontWeight: FontWeight.bold);
   TextStyle get description => const TextStyle(fontSize: 24);
-  TextStyle get smallDescription => const TextStyle(fontSize: 20);
+  TextStyle get smallDescription => const TextStyle(fontSize: 12);
   TextStyle get error => const TextStyle(fontSize: 16, color: Colors.red);
   TextStyle get dropDownValues => const TextStyle(fontSize: 16);
   TextStyle get mainListValues => const TextStyle(fontSize: 28);

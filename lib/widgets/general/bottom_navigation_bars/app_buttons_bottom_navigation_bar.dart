@@ -12,6 +12,8 @@ class AppButtonsBottomNavigationBar extends StatelessWidget {
   final bool middleButton;
   final String? middleButtonText;
   final VoidCallback? middleButtonOnTap;
+  final Widget? child;
+  final double? height;
   const AppButtonsBottomNavigationBar({
     super.key,
     this.oneButton = false,
@@ -23,13 +25,15 @@ class AppButtonsBottomNavigationBar extends StatelessWidget {
     this.middleButton = false,
     this.middleButtonText,
     this.middleButtonOnTap,
+    this.child,
+    this.height,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height * (0.10),
+      height: height ?? MediaQuery.of(context).size.height * (0.10),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
@@ -43,42 +47,43 @@ class AppButtonsBottomNavigationBar extends StatelessWidget {
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 12),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            if (!oneButton) ...[
-              Expanded(
-                child: appButton(
-                  text: inactiveButtonText ?? "Cancel",
-                  unfillColors: true,
-                  onTap: inactiveButtonOnTap ??
-                      () => KheasydevNavigatePage().pop(context),
-                ),
-              ),
-              const SizedBox(width: 40),
-            ],
-            if (middleButton) ...[
-              Expanded(
-                child: appButton(
-                  text: middleButtonText ?? "Cancel",
-                  unfillColors: true,
-                  onTap: middleButtonOnTap ??
-                      () => KheasydevNavigatePage().pop(context),
-                ),
-              ),
-              const SizedBox(width: 40),
-            ],
-            Expanded(
-                child: appButton(
-              text: activeButtonText ?? "Ok",
-              onTap: activeButtonDisable
-                  ? null
-                  : activeButtonOnTap ??
-                      () => KheasydevNavigatePage().pop(context),
-              disableColors: activeButtonDisable,
-            )),
-          ],
-        ),
+        child: child ??
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                if (!oneButton) ...[
+                  Expanded(
+                    child: appButton(
+                      text: inactiveButtonText ?? "Cancel",
+                      unfillColors: true,
+                      onTap: inactiveButtonOnTap ??
+                          () => KheasydevNavigatePage().pop(context),
+                    ),
+                  ),
+                  const SizedBox(width: 40),
+                ],
+                if (middleButton) ...[
+                  Expanded(
+                    child: appButton(
+                      text: middleButtonText ?? "Cancel",
+                      unfillColors: true,
+                      onTap: middleButtonOnTap ??
+                          () => KheasydevNavigatePage().pop(context),
+                    ),
+                  ),
+                  const SizedBox(width: 40),
+                ],
+                Expanded(
+                    child: appButton(
+                  text: activeButtonText ?? "Ok",
+                  onTap: activeButtonDisable
+                      ? null
+                      : activeButtonOnTap ??
+                          () => KheasydevNavigatePage().pop(context),
+                  disableColors: activeButtonDisable,
+                )),
+              ],
+            ),
       ),
     );
   }
