@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 2 (1 per locale)
+/// Strings: 6 (3 per locale)
 ///
-/// Built on 2025-02-05 at 14:08 UTC
+/// Built on 2025-02-06 at 15:15 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -16,17 +16,17 @@ import 'package:slang/builder/model/node.dart';
 import 'package:slang_flutter/slang_flutter.dart';
 export 'package:slang_flutter/slang_flutter.dart';
 
-const AppLocale _baseLocale = AppLocale.he;
+const AppLocale _baseLocale = AppLocale.en;
 
 /// Supported locales, see extension methods below.
 ///
 /// Usage:
-/// - LocaleSettings.setLocale(AppLocale.he) // set locale
-/// - Locale locale = AppLocale.he.flutterLocale // get flutter locale from enum
-/// - if (LocaleSettings.currentLocale == AppLocale.he) // locale check
+/// - LocaleSettings.setLocale(AppLocale.en) // set locale
+/// - Locale locale = AppLocale.en.flutterLocale // get flutter locale from enum
+/// - if (LocaleSettings.currentLocale == AppLocale.en) // locale check
 enum AppLocale with BaseAppLocale<AppLocale, Translations> {
-	he(languageCode: 'he', build: Translations.build),
-	en(languageCode: 'en', build: _StringsEn.build);
+	en(languageCode: 'en', build: Translations.build),
+	he(languageCode: 'he', build: _StringsHe.build);
 
 	const AppLocale({required this.languageCode, this.scriptCode, this.countryCode, required this.build}); // ignore: unused_element
 
@@ -131,33 +131,6 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	Translations.build({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
 		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
 		  $meta = TranslationMetadata(
-		    locale: AppLocale.he,
-		    overrides: overrides ?? {},
-		    cardinalResolver: cardinalResolver,
-		    ordinalResolver: ordinalResolver,
-		  ) {
-		$meta.setFlatMapFunction(_flatMapFunction);
-	}
-
-	/// Metadata for the translations of <he>.
-	@override final TranslationMetadata<AppLocale, Translations> $meta;
-
-	/// Access flat map
-	dynamic operator[](String key) => $meta.getTranslation(key);
-
-	late final Translations _root = this; // ignore: unused_field
-
-	// Translations
-	String get welcome => 'ברוך הבא';
-}
-
-// Path: <root>
-class _StringsEn implements Translations {
-	/// You can call this constructor and build your own translation instance of this locale.
-	/// Constructing via the enum [AppLocale.build] is preferred.
-	_StringsEn.build({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
-		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
-		  $meta = TranslationMetadata(
 		    locale: AppLocale.en,
 		    overrides: overrides ?? {},
 		    cardinalResolver: cardinalResolver,
@@ -170,12 +143,43 @@ class _StringsEn implements Translations {
 	@override final TranslationMetadata<AppLocale, Translations> $meta;
 
 	/// Access flat map
-	@override dynamic operator[](String key) => $meta.getTranslation(key);
+	dynamic operator[](String key) => $meta.getTranslation(key);
 
-	@override late final _StringsEn _root = this; // ignore: unused_field
+	late final Translations _root = this; // ignore: unused_field
 
 	// Translations
-	@override String get welcome => 'Welcome';
+	String get welcome => 'Welcome';
+	String get choose_product => 'Choose product';
+	String get choose_company => 'Choose company';
+}
+
+// Path: <root>
+class _StringsHe implements Translations {
+	/// You can call this constructor and build your own translation instance of this locale.
+	/// Constructing via the enum [AppLocale.build] is preferred.
+	_StringsHe.build({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
+		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
+		  $meta = TranslationMetadata(
+		    locale: AppLocale.he,
+		    overrides: overrides ?? {},
+		    cardinalResolver: cardinalResolver,
+		    ordinalResolver: ordinalResolver,
+		  ) {
+		$meta.setFlatMapFunction(_flatMapFunction);
+	}
+
+	/// Metadata for the translations of <he>.
+	@override final TranslationMetadata<AppLocale, Translations> $meta;
+
+	/// Access flat map
+	@override dynamic operator[](String key) => $meta.getTranslation(key);
+
+	@override late final _StringsHe _root = this; // ignore: unused_field
+
+	// Translations
+	@override String get welcome => 'ברוך הבא';
+	@override String get choose_product => 'בחר מוצר';
+	@override String get choose_company => 'בחר חברה';
 }
 
 /// Flat map(s) containing all translations.
@@ -184,16 +188,20 @@ class _StringsEn implements Translations {
 extension on Translations {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
-			case 'welcome': return 'ברוך הבא';
+			case 'welcome': return 'Welcome';
+			case 'choose_product': return 'Choose product';
+			case 'choose_company': return 'Choose company';
 			default: return null;
 		}
 	}
 }
 
-extension on _StringsEn {
+extension on _StringsHe {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
-			case 'welcome': return 'Welcome';
+			case 'welcome': return 'ברוך הבא';
+			case 'choose_product': return 'בחר מוצר';
+			case 'choose_company': return 'בחר חברה';
 			default: return null;
 		}
 	}
