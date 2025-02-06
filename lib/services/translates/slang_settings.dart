@@ -5,3 +5,5 @@ changeLanguage(AppLocale lang) {
 }
 
 getLanguageCode() => LocaleSettings.currentLocale.languageCode;
+
+isEnglish() => LocaleSettings.currentLocale.languageCode == 'en';

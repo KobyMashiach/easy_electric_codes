@@ -3,19 +3,26 @@ import 'package:easy_electric_codes/core/global_vars.dart';
 import 'package:easy_electric_codes/core/text_styles.dart';
 import 'package:easy_electric_codes/i18n/strings.g.dart';
 import 'package:easy_electric_codes/models/product_type_model/product_type_model.dart';
+import 'package:easy_electric_codes/services/translates/slang_settings.dart';
 import 'package:easy_electric_codes/ui/companies_screen.dart';
 import 'package:easy_electric_codes/ui/home/bloc/home_screen_bloc.dart';
 import 'package:easy_electric_codes/widgets/design/general/carousel_widgets.dart';
 import 'package:easy_electric_codes/widgets/general/appbar.dart';
 import 'package:easy_electric_codes/widgets/general/circular_progress_image.dart';
+import 'package:easy_electric_codes/widgets/general/language_dropdown.dart';
 import 'package:easy_electric_codes/widgets/general/side_menu_v2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kh_easy_dev/services/navigate_page.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -35,8 +42,15 @@ class HomeScreen extends StatelessWidget {
         },
         builder: (context, state) {
           final bloc = context.read<HomeScreenBloc>();
+          List<ProductTypeModel> products =
+              isEnglish() ? globalProductsEN : globalProductsHE;
           return Scaffold(
-            appBar: appAppBar(title: t.welcome),
+            appBar: appAppBar(
+              title: t.welcome,
+              actions: [
+                LanguageDropdown(onLanguageChange: () => setState(() {}))
+              ],
+            ),
             drawer: appSideMenuV2(context, 'home'),
             body: state.maybeWhen(
               loading: () => const CircularProgressImage(),
@@ -51,8 +65,8 @@ class HomeScreen extends StatelessWidget {
                         scrollDirection: Axis.vertical,
                         onTap: (index) => bloc.add(
                             HomeScreenEvent.navToCompaniesScreen(
-                                productType: globalProductsEN[index])),
-                        children: carouselChildren(),
+                                productType: products[index])),
+                        children: carouselChildren(products),
                       ),
                     )
                   ],
@@ -65,9 +79,9 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  List<Widget> carouselChildren() {
-    return List.generate(globalProductsEN.length, (i) {
-      ProductTypeModel productType = globalProductsEN[i];
+  List<Widget> carouselChildren(List<ProductTypeModel> products) {
+    return List.generate(products.length, (i) {
+      ProductTypeModel productType = products[i];
       return Stack(
         children: [
           Container(
@@ -80,7 +94,10 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           whiteShadow(),
-          textWithBorder(text: productType.productType.productName),
+          textWithBorder(
+              text: isEnglish()
+                  ? productType.productType.productName
+                  : productType.productType.productNameHebrew),
         ],
       );
     });

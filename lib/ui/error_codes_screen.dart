@@ -2,6 +2,7 @@ import 'package:easy_electric_codes/core/text_styles.dart';
 import 'package:easy_electric_codes/i18n/strings.g.dart';
 import 'package:easy_electric_codes/models/appliance_model/appliance_model.dart';
 import 'package:easy_electric_codes/models/error_code_model/error_code_model.dart';
+import 'package:easy_electric_codes/services/translates/slang_settings.dart';
 import 'package:easy_electric_codes/ui/error_code_screen.dart';
 import 'package:easy_electric_codes/widgets/general/appbar.dart';
 import 'package:flutter/material.dart';
@@ -46,7 +47,10 @@ class _ErrorCodesScreenState extends State<ErrorCodesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appAppBar(title: widget.companyType.company.companyName),
+      appBar: appAppBar(
+          title: isEnglish()
+              ? widget.companyType.company.companyName
+              : widget.companyType.company.companyNameHebrew),
       body: Column(
         children: [
           Padding(

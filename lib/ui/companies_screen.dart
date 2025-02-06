@@ -2,6 +2,7 @@ import 'package:easy_electric_codes/core/text_styles.dart';
 import 'package:easy_electric_codes/i18n/strings.g.dart';
 import 'package:easy_electric_codes/models/appliance_model/appliance_model.dart';
 import 'package:easy_electric_codes/models/product_type_model/product_type_model.dart';
+import 'package:easy_electric_codes/services/translates/slang_settings.dart';
 import 'package:easy_electric_codes/ui/error_codes_screen.dart';
 import 'package:easy_electric_codes/widgets/design/general/carousel_widgets.dart';
 import 'package:easy_electric_codes/widgets/general/appbar.dart';
@@ -14,14 +15,25 @@ class CompaniesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<ApplianceModel> companies = List.from(productType.companies)
-      ..sort((a, b) => a.company.companyName.compareTo(b.company.companyName));
+    List<ApplianceModel> companies = List.from(productType.companies);
+    if (isEnglish()) {
+      companies = companies
+        ..sort(
+            (a, b) => a.company.companyName.compareTo(b.company.companyName));
+    } else {
+      companies = companies
+        ..sort((a, b) =>
+            a.company.companyNameHebrew.compareTo(b.company.companyNameHebrew));
+    }
 
     int halfLength = (companies.length / 2).ceil();
     List<ApplianceModel> firstHalf = companies.sublist(0, halfLength);
     List<ApplianceModel> secondHalf = companies.sublist(halfLength);
     return Scaffold(
-      appBar: appAppBar(title: productType.productType.productName),
+      appBar: appAppBar(
+          title: isEnglish()
+              ? productType.productType.productName
+              : productType.productType.productNameHebrew),
       body: Center(
         child: Column(
           children: [
@@ -58,7 +70,10 @@ class CompaniesScreen extends StatelessWidget {
               child: Image.asset(companyType.company.logoPath),
             ),
             whiteShadow(),
-            textWithBorder(text: companyType.company.companyName),
+            textWithBorder(
+                text: isEnglish()
+                    ? companyType.company.companyName
+                    : companyType.company.companyNameHebrew),
           ],
         );
       }).toList(),
