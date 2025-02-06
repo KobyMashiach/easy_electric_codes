@@ -2,10 +2,13 @@
 
 import 'dart:developer';
 import 'dart:convert';
+import 'dart:ui';
 import 'package:easy_electric_codes/core/global_vars.dart';
 import 'package:easy_electric_codes/models/appliance_company_enum.dart';
 import 'package:easy_electric_codes/models/electrical_product_enum.dart';
 import 'package:easy_electric_codes/models/error_code_model/error_code_model.dart';
+import 'package:easy_electric_codes/models/language_model.dart';
+import 'package:easy_electric_codes/services/translates/slang_settings.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
 import 'package:bloc/bloc.dart';
@@ -26,6 +29,9 @@ class HomeScreenBloc extends Bloc<HomeScreenEvent, HomeScreenState> {
         initialize: (e) async {
           if (globalProductsHE.isEmpty || globalProductsEN.isEmpty) {
             emit(const HomeScreenState.loading());
+            final deviceLanguage =
+                PlatformDispatcher.instance.locale.languageCode;
+            changeLanguage(LanguageModel.getAppLocale(deviceLanguage));
             globalProductsHE = await buildJsonProduct(heJson);
             globalProductsEN = await buildJsonProduct(enJson);
             emit(const HomeScreenState.refreshUI());

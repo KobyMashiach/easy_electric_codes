@@ -25,10 +25,10 @@ appSideMenuV2(BuildContext context, String pageName) {
         page: const HomeScreen(),
       ),
       // DrawerButtonModel(
-      //   text: t.logout,
-      //   enableColor: pageName == 'settings',
-      //   icon: const Icon(Icons.logout),
-      //   onTap: showLogoutDialog,
+      //   text: t.search_by_error_code,
+      //   enableColor: pageName == 'search',
+      //   icon: const Icon(Icons.search),
+      //   page: const SearchByCodeScreen(),
       // ),
     ],
   );
