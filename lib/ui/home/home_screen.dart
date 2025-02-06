@@ -8,6 +8,7 @@ import 'package:easy_electric_codes/ui/home/bloc/home_screen_bloc.dart';
 import 'package:easy_electric_codes/widgets/design/general/carousel_widgets.dart';
 import 'package:easy_electric_codes/widgets/general/appbar.dart';
 import 'package:easy_electric_codes/widgets/general/circular_progress_image.dart';
+import 'package:easy_electric_codes/widgets/general/side_menu_v2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kh_easy_dev/services/navigate_page.dart';
@@ -36,6 +37,7 @@ class HomeScreen extends StatelessWidget {
           final bloc = context.read<HomeScreenBloc>();
           return Scaffold(
             appBar: appAppBar(title: t.welcome),
+            drawer: appSideMenuV2(context, 'home'),
             body: state.maybeWhen(
               loading: () => const CircularProgressImage(),
               orElse: () => Center(

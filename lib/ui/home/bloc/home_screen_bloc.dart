@@ -24,10 +24,12 @@ class HomeScreenBloc extends Bloc<HomeScreenEvent, HomeScreenState> {
     on<HomeScreenEvent>((event, emit) async {
       await event.map(
         initialize: (e) async {
-          emit(const HomeScreenState.loading());
-          // globalProductsHE = await buildJsonProduct(heJson);
-          globalProductsEN = await buildJsonProduct(enJson);
-          emit(const HomeScreenState.refreshUI());
+          if (globalProductsHE.isEmpty || globalProductsEN.isEmpty) {
+            emit(const HomeScreenState.loading());
+            globalProductsHE = await buildJsonProduct(heJson);
+            globalProductsEN = await buildJsonProduct(enJson);
+            emit(const HomeScreenState.refreshUI());
+          }
         },
         navToCompaniesScreen: (e) async => emit(
             HomeScreenState.navToCompaniesScreen(productType: e.productType)),

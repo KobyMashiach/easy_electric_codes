@@ -1,5 +1,7 @@
 {
   "welcome": "ברוך הבא",
   "choose_product": "בחר מוצר",
-  "choose_company": "בחר חברה"
+  "choose_company": "בחר חברה",
+  "search_by_error_code": "חיפוש לפי שורת קוד",
+  "home_screen": "דף הבית"
 }

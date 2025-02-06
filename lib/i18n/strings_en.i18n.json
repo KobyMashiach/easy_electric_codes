@@ -1,5 +1,7 @@
 {
   "welcome": "Welcome",
   "choose_product": "Choose product",
-  "choose_company": "Choose company"
+  "choose_company": "Choose company",
+  "search_by_error_code": "Search by error code",
+  "home_screen": "Home screen"
 }
