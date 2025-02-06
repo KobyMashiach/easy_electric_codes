@@ -10,40 +10,45 @@ class CompaniesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<ApplianceModel> companies = List.from(productType.companies)
+      ..sort((a, b) => a.company.companyName.compareTo(b.company.companyName));
+
+    int halfLength = (companies.length / 2).ceil();
+    List<ApplianceModel> firstHalf = companies.sublist(0, halfLength);
+    List<ApplianceModel> secondHalf = companies.sublist(halfLength);
     return Scaffold(
       appBar: appAppBar(title: productType.productType.productName),
       body: Center(
         child: Row(
           children: [
-            Expanded(
-              child: CarouselView.weighted(
-                flexWeights: const [1, 2, 3, 2, 1],
-                itemSnapping: true,
-                scrollDirection: Axis.vertical,
-                onTap: (index) {},
-                children: List.generate(productType.companies.length, (i) {
-                  ApplianceModel company = productType.companies[i];
-                  return Stack(
-                    children: [
-                      Container(
-                        width: double.infinity,
-                        height: double.infinity,
-                        color: Colors.grey,
-                        // color: Colors.primaries[i % 17],
-                        child: Image.asset(
-                          company.company.logoPath,
-                        ),
-                      ),
-                      whiteShadow(),
-                      textWithBorder(text: company.company.companyName),
-                    ],
-                  );
-                }),
-              ),
-            ),
+            Expanded(child: _buildCarousel(firstHalf)),
+            Expanded(child: _buildCarousel(secondHalf)),
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildCarousel(List<ApplianceModel> companyList) {
+    return CarouselView.weighted(
+      flexWeights: const [1, 2, 3, 2, 1],
+      itemSnapping: true,
+      scrollDirection: Axis.vertical,
+      onTap: (index) {},
+      children: companyList.map((company) {
+        return Stack(
+          children: [
+            Container(
+              width: double.infinity,
+              height: double.infinity,
+              color: Colors.grey,
+              child: Image.asset(company.company.logoPath),
+            ),
+            whiteShadow(),
+            textWithBorder(text: company.company.companyName),
+          ],
+        );
+      }).toList(),
     );
   }
 }
