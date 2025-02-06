@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 10 (5 per locale)
+/// Strings: 12 (6 per locale)
 ///
-/// Built on 2025-02-06 at 17:53 UTC
+/// Built on 2025-02-06 at 18:05 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -153,6 +153,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	String get choose_company => 'בחר חברה';
 	String get search_by_error_code => 'חיפוש לפי שורת קוד';
 	String get home_screen => 'דף הבית';
+	String get contact_us => 'יצירת קשר';
 }
 
 // Path: <root>
@@ -184,6 +185,7 @@ class _StringsEn implements Translations {
 	@override String get choose_company => 'Choose company';
 	@override String get search_by_error_code => 'Search by error code';
 	@override String get home_screen => 'Home screen';
+	@override String get contact_us => 'Contact us';
 }
 
 /// Flat map(s) containing all translations.
@@ -197,6 +199,7 @@ extension on Translations {
 			case 'choose_company': return 'בחר חברה';
 			case 'search_by_error_code': return 'חיפוש לפי שורת קוד';
 			case 'home_screen': return 'דף הבית';
+			case 'contact_us': return 'יצירת קשר';
 			default: return null;
 		}
 	}
@@ -210,6 +213,7 @@ extension on _StringsEn {
 			case 'choose_company': return 'Choose company';
 			case 'search_by_error_code': return 'Search by error code';
 			case 'home_screen': return 'Home screen';
+			case 'contact_us': return 'Contact us';
 			default: return null;
 		}
 	}
