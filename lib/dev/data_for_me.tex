@@ -14,3 +14,14 @@ Tags:
 build_runner:
      dart run build_runner watch
      dart run build_runner build
+
+To release: 
+     generate keystore:
+          keytool -genkeypair -v -keystore windows-keystore.jks -keyalg RSA -keysize 2048 -validity 10000 -alias windows_key
+     location:
+          keystore -> android/app/keystore.jks
+          key.properties -> android/key.properties
+               storePassword= {password}
+               keyPassword={password}
+               keyAlias=windows_key
+               storeFile=../app/keystore.jks

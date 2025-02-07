@@ -15,7 +15,8 @@ enum ApplianceCompany {
   siemens,
   tadiran,
   electra,
-  tornado;
+  tornado,
+  aeg;
 
   // Get the path for the logo image based on the company type
   String get logoPath => 'assets/companies/${name.toLowerCase()}_logo.png';
@@ -40,6 +41,7 @@ enum ApplianceCompany {
       ApplianceCompany.tadiran => 'Tadiran',
       ApplianceCompany.electra => 'Electra',
       ApplianceCompany.tornado => 'Tornado',
+      ApplianceCompany.aeg => 'Aeg',
     };
   }
 
@@ -63,6 +65,7 @@ enum ApplianceCompany {
       ApplianceCompany.tadiran => 'תדיראן',
       ApplianceCompany.electra => 'אלקטרה',
       ApplianceCompany.tornado => 'טורנדו',
+      ApplianceCompany.aeg => 'א.א.ג',
     };
   }
 }
