@@ -788,5 +788,24 @@
             "EE": "Water level error.",
             "FE": "No address allocated to the indoor unit."
         }
+    },
+    "dishwashers": {
+        "Bosch": {
+            "E01": "Water pump failure. The pump may be blocked or faulty. Check for debris blocking the pump and replace it if necessary.",
+            "E09": "Heating element failure. The element may not be heating water correctly. Inspect and replace if needed.",
+            "E15": "Water leak detected. The leakage protection system has been activated. Check for water at the bottom of the dishwasher and ensure there are no pipe leaks.",
+            "E22": "Filter blockage. The dishwasher filter is clogged. Clean the filters to prevent buildup affecting performance.",
+            "E24": "Drain issue. The drain hose may be clogged or bent. Check and clean the hose.",
+            "E25": "Drain pump failure. The pump may be blocked or faulty. Inspect the pump for blockages and clean if necessary."
+        },
+        "Whirlpool": {
+            "F2": "Water leak or overflow detected. Check if there is water at the bottom of the dishwasher and ensure the pipes are not leaking.",
+            "F4": "Drain pump failure. The hose may be clogged, or the pump may be faulty. Inspect and clean the hose and pump.",
+            "F6": "No water supply. Check the water flow and ensure the valve is open.",
+            "F7": "Water level sensor issue. The dishwasher may not be detecting the correct water level. Inspect and clean the sensor.",
+            "F8": "Heating problem. The dishwasher may not be heating water due to a faulty heating element or temperature sensor.",
+            "F9": "Water drainage issue. Check for clogs in the drainage system and ensure the pump is functioning properly.",
+            "FA": "Turbidity sensor failure. The dishwasher may not be detecting the water's dirt level correctly. Clean or replace the sensor if necessary."
+        }
     }
 }

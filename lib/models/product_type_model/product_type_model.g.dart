@@ -29,5 +29,5 @@ const _$ElectricalProductTypeEnumMap = {
   ElectricalProductType.tumbleDryers: 'tumbleDryers',
   ElectricalProductType.washingMachines: 'washingMachines',
   ElectricalProductType.airConditioners: 'airConditioners',
-  ElectricalProductType.dishwasher: 'dishwasher',
+  ElectricalProductType.dishwashers: 'dishwashers',
 };

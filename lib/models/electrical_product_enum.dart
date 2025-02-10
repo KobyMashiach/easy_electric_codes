@@ -4,7 +4,7 @@ enum ElectricalProductType {
   tumbleDryers,
   washingMachines,
   airConditioners,
-  dishwasher;
+  dishwashers;
 
   // Get the path for the logo image based on the product type
   String get logoPath =>
@@ -18,7 +18,7 @@ enum ElectricalProductType {
       ElectricalProductType.tumbleDryers => 'Tumble Dryers',
       ElectricalProductType.washingMachines => 'Washing Machines',
       ElectricalProductType.airConditioners => 'Air Conditioners',
-      ElectricalProductType.dishwasher => 'Dishwasher',
+      ElectricalProductType.dishwashers => 'Dishwashers',
     };
   }
 
@@ -30,7 +30,7 @@ enum ElectricalProductType {
       ElectricalProductType.tumbleDryers => 'מייבשי כביסה',
       ElectricalProductType.washingMachines => 'מכונות כביסה',
       ElectricalProductType.airConditioners => 'מזגנים',
-      ElectricalProductType.dishwasher => 'מדיחי כלים',
+      ElectricalProductType.dishwashers => 'מדיחי כלים',
     };
   }
 }
