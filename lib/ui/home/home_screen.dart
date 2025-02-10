@@ -53,8 +53,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         title: t.new_update_title,
                         description: t.new_update_description,
                         okButtonText: t.update,
-                        okButtonOnTap: () =>
-                            bloc.add(const HomeScreenEvent.onClickUpdate())),
+                        okButtonOnTap: () {
+                          KheasydevNavigatePage().pop(context);
+                          bloc.add(const HomeScreenEvent.onClickUpdate());
+                        }),
                   ),
               orElse: () {});
         },
