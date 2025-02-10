@@ -7,6 +7,7 @@ import 'package:easy_electric_codes/services/translates/slang_settings.dart';
 import 'package:easy_electric_codes/ui/companies_screen.dart';
 import 'package:easy_electric_codes/ui/home/bloc/home_screen_bloc.dart';
 import 'package:easy_electric_codes/widgets/design/general/carousel_widgets.dart';
+import 'package:easy_electric_codes/widgets/dialogs/general_dialog.dart';
 import 'package:easy_electric_codes/widgets/general/appbar.dart';
 import 'package:easy_electric_codes/widgets/general/circular_progress_image.dart';
 import 'package:easy_electric_codes/widgets/general/language_dropdown.dart';
@@ -30,14 +31,31 @@ class _HomeScreenState extends State<HomeScreen> {
           HomeScreenBloc()..add(const HomeScreenEvent.initialize()),
       child: BlocConsumer<HomeScreenBloc, HomeScreenState>(
         listenWhen: (previous, current) => current.maybeWhen(
-            navToCompaniesScreen: (e) => true, orElse: () => false),
+          navToCompaniesScreen: (e) => true,
+          openUpdateDialog: () => true,
+          orElse: () => false,
+        ),
         buildWhen: (previous, current) => current.maybeWhen(
-            navToCompaniesScreen: (e) => false, orElse: () => true),
+          navToCompaniesScreen: (e) => false,
+          openUpdateDialog: () => false,
+          orElse: () => true,
+        ),
         listener: (context, state) {
+          final bloc = context.read<HomeScreenBloc>();
+
           state.maybeWhen(
               navToCompaniesScreen: (productType) => KheasydevNavigatePage()
                   .pushDuration(
                       context, CompaniesScreen(productType: productType)),
+              openUpdateDialog: () async => await showDialog(
+                    context: context,
+                    builder: (context) => generalDialog(
+                        title: t.new_update_title,
+                        description: t.new_update_description,
+                        okButtonText: t.update,
+                        okButtonOnTap: () =>
+                            bloc.add(const HomeScreenEvent.onClickUpdate())),
+                  ),
               orElse: () {});
         },
         builder: (context, state) {

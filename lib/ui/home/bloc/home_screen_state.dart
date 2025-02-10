@@ -5,6 +5,7 @@ class HomeScreenState with _$HomeScreenState {
   const factory HomeScreenState.initial() = HomeScreenInitial;
   const factory HomeScreenState.loading() = HomeScreenLoading;
   const factory HomeScreenState.refreshUI() = HomeScreenRefreshUI;
+  const factory HomeScreenState.openUpdateDialog() = HomeScreenOpenUpdateDialog;
 
   const factory HomeScreenState.navToCompaniesScreen(
       {required ProductTypeModel productType}) = HomeScreenNavToCompaniesScreen;

@@ -19,6 +19,7 @@ mixin _$HomeScreenEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
+    required TResult Function() onClickUpdate,
     required TResult Function(ProductTypeModel productType)
         navToCompaniesScreen,
   }) =>
@@ -26,12 +27,14 @@ mixin _$HomeScreenEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
+    TResult? Function()? onClickUpdate,
     TResult? Function(ProductTypeModel productType)? navToCompaniesScreen,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
+    TResult Function()? onClickUpdate,
     TResult Function(ProductTypeModel productType)? navToCompaniesScreen,
     required TResult orElse(),
   }) =>
@@ -39,18 +42,21 @@ mixin _$HomeScreenEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialize value) initialize,
+    required TResult Function(_OnClickUpdate value) onClickUpdate,
     required TResult Function(_NavToCompaniesScreen value) navToCompaniesScreen,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initialize value)? initialize,
+    TResult? Function(_OnClickUpdate value)? onClickUpdate,
     TResult? Function(_NavToCompaniesScreen value)? navToCompaniesScreen,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialize value)? initialize,
+    TResult Function(_OnClickUpdate value)? onClickUpdate,
     TResult Function(_NavToCompaniesScreen value)? navToCompaniesScreen,
     required TResult orElse(),
   }) =>
@@ -120,6 +126,7 @@ class _$InitializeImpl implements _Initialize {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
+    required TResult Function() onClickUpdate,
     required TResult Function(ProductTypeModel productType)
         navToCompaniesScreen,
   }) {
@@ -130,6 +137,7 @@ class _$InitializeImpl implements _Initialize {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
+    TResult? Function()? onClickUpdate,
     TResult? Function(ProductTypeModel productType)? navToCompaniesScreen,
   }) {
     return initialize?.call();
@@ -139,6 +147,7 @@ class _$InitializeImpl implements _Initialize {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
+    TResult Function()? onClickUpdate,
     TResult Function(ProductTypeModel productType)? navToCompaniesScreen,
     required TResult orElse(),
   }) {
@@ -152,6 +161,7 @@ class _$InitializeImpl implements _Initialize {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialize value) initialize,
+    required TResult Function(_OnClickUpdate value) onClickUpdate,
     required TResult Function(_NavToCompaniesScreen value) navToCompaniesScreen,
   }) {
     return initialize(this);
@@ -161,6 +171,7 @@ class _$InitializeImpl implements _Initialize {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initialize value)? initialize,
+    TResult? Function(_OnClickUpdate value)? onClickUpdate,
     TResult? Function(_NavToCompaniesScreen value)? navToCompaniesScreen,
   }) {
     return initialize?.call(this);
@@ -170,6 +181,7 @@ class _$InitializeImpl implements _Initialize {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialize value)? initialize,
+    TResult Function(_OnClickUpdate value)? onClickUpdate,
     TResult Function(_NavToCompaniesScreen value)? navToCompaniesScreen,
     required TResult orElse(),
   }) {
@@ -182,6 +194,118 @@ class _$InitializeImpl implements _Initialize {
 
 abstract class _Initialize implements HomeScreenEvent {
   const factory _Initialize() = _$InitializeImpl;
+}
+
+/// @nodoc
+abstract class _$$OnClickUpdateImplCopyWith<$Res> {
+  factory _$$OnClickUpdateImplCopyWith(
+          _$OnClickUpdateImpl value, $Res Function(_$OnClickUpdateImpl) then) =
+      __$$OnClickUpdateImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$OnClickUpdateImplCopyWithImpl<$Res>
+    extends _$HomeScreenEventCopyWithImpl<$Res, _$OnClickUpdateImpl>
+    implements _$$OnClickUpdateImplCopyWith<$Res> {
+  __$$OnClickUpdateImplCopyWithImpl(
+      _$OnClickUpdateImpl _value, $Res Function(_$OnClickUpdateImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of HomeScreenEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$OnClickUpdateImpl implements _OnClickUpdate {
+  const _$OnClickUpdateImpl();
+
+  @override
+  String toString() {
+    return 'HomeScreenEvent.onClickUpdate()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$OnClickUpdateImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
+    required TResult Function() onClickUpdate,
+    required TResult Function(ProductTypeModel productType)
+        navToCompaniesScreen,
+  }) {
+    return onClickUpdate();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
+    TResult? Function()? onClickUpdate,
+    TResult? Function(ProductTypeModel productType)? navToCompaniesScreen,
+  }) {
+    return onClickUpdate?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function()? onClickUpdate,
+    TResult Function(ProductTypeModel productType)? navToCompaniesScreen,
+    required TResult orElse(),
+  }) {
+    if (onClickUpdate != null) {
+      return onClickUpdate();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialize value) initialize,
+    required TResult Function(_OnClickUpdate value) onClickUpdate,
+    required TResult Function(_NavToCompaniesScreen value) navToCompaniesScreen,
+  }) {
+    return onClickUpdate(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initialize value)? initialize,
+    TResult? Function(_OnClickUpdate value)? onClickUpdate,
+    TResult? Function(_NavToCompaniesScreen value)? navToCompaniesScreen,
+  }) {
+    return onClickUpdate?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialize value)? initialize,
+    TResult Function(_OnClickUpdate value)? onClickUpdate,
+    TResult Function(_NavToCompaniesScreen value)? navToCompaniesScreen,
+    required TResult orElse(),
+  }) {
+    if (onClickUpdate != null) {
+      return onClickUpdate(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OnClickUpdate implements HomeScreenEvent {
+  const factory _OnClickUpdate() = _$OnClickUpdateImpl;
 }
 
 /// @nodoc
@@ -268,6 +392,7 @@ class _$NavToCompaniesScreenImpl implements _NavToCompaniesScreen {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
+    required TResult Function() onClickUpdate,
     required TResult Function(ProductTypeModel productType)
         navToCompaniesScreen,
   }) {
@@ -278,6 +403,7 @@ class _$NavToCompaniesScreenImpl implements _NavToCompaniesScreen {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
+    TResult? Function()? onClickUpdate,
     TResult? Function(ProductTypeModel productType)? navToCompaniesScreen,
   }) {
     return navToCompaniesScreen?.call(productType);
@@ -287,6 +413,7 @@ class _$NavToCompaniesScreenImpl implements _NavToCompaniesScreen {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
+    TResult Function()? onClickUpdate,
     TResult Function(ProductTypeModel productType)? navToCompaniesScreen,
     required TResult orElse(),
   }) {
@@ -300,6 +427,7 @@ class _$NavToCompaniesScreenImpl implements _NavToCompaniesScreen {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialize value) initialize,
+    required TResult Function(_OnClickUpdate value) onClickUpdate,
     required TResult Function(_NavToCompaniesScreen value) navToCompaniesScreen,
   }) {
     return navToCompaniesScreen(this);
@@ -309,6 +437,7 @@ class _$NavToCompaniesScreenImpl implements _NavToCompaniesScreen {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initialize value)? initialize,
+    TResult? Function(_OnClickUpdate value)? onClickUpdate,
     TResult? Function(_NavToCompaniesScreen value)? navToCompaniesScreen,
   }) {
     return navToCompaniesScreen?.call(this);
@@ -318,6 +447,7 @@ class _$NavToCompaniesScreenImpl implements _NavToCompaniesScreen {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialize value)? initialize,
+    TResult Function(_OnClickUpdate value)? onClickUpdate,
     TResult Function(_NavToCompaniesScreen value)? navToCompaniesScreen,
     required TResult orElse(),
   }) {
@@ -349,6 +479,7 @@ mixin _$HomeScreenState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() refreshUI,
+    required TResult Function() openUpdateDialog,
     required TResult Function(ProductTypeModel productType)
         navToCompaniesScreen,
   }) =>
@@ -358,6 +489,7 @@ mixin _$HomeScreenState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? refreshUI,
+    TResult? Function()? openUpdateDialog,
     TResult? Function(ProductTypeModel productType)? navToCompaniesScreen,
   }) =>
       throw _privateConstructorUsedError;
@@ -366,6 +498,7 @@ mixin _$HomeScreenState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? refreshUI,
+    TResult Function()? openUpdateDialog,
     TResult Function(ProductTypeModel productType)? navToCompaniesScreen,
     required TResult orElse(),
   }) =>
@@ -375,6 +508,8 @@ mixin _$HomeScreenState {
     required TResult Function(HomeScreenInitial value) initial,
     required TResult Function(HomeScreenLoading value) loading,
     required TResult Function(HomeScreenRefreshUI value) refreshUI,
+    required TResult Function(HomeScreenOpenUpdateDialog value)
+        openUpdateDialog,
     required TResult Function(HomeScreenNavToCompaniesScreen value)
         navToCompaniesScreen,
   }) =>
@@ -384,6 +519,7 @@ mixin _$HomeScreenState {
     TResult? Function(HomeScreenInitial value)? initial,
     TResult? Function(HomeScreenLoading value)? loading,
     TResult? Function(HomeScreenRefreshUI value)? refreshUI,
+    TResult? Function(HomeScreenOpenUpdateDialog value)? openUpdateDialog,
     TResult? Function(HomeScreenNavToCompaniesScreen value)?
         navToCompaniesScreen,
   }) =>
@@ -393,6 +529,7 @@ mixin _$HomeScreenState {
     TResult Function(HomeScreenInitial value)? initial,
     TResult Function(HomeScreenLoading value)? loading,
     TResult Function(HomeScreenRefreshUI value)? refreshUI,
+    TResult Function(HomeScreenOpenUpdateDialog value)? openUpdateDialog,
     TResult Function(HomeScreenNavToCompaniesScreen value)?
         navToCompaniesScreen,
     required TResult orElse(),
@@ -465,6 +602,7 @@ class _$HomeScreenInitialImpl implements HomeScreenInitial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() refreshUI,
+    required TResult Function() openUpdateDialog,
     required TResult Function(ProductTypeModel productType)
         navToCompaniesScreen,
   }) {
@@ -477,6 +615,7 @@ class _$HomeScreenInitialImpl implements HomeScreenInitial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? refreshUI,
+    TResult? Function()? openUpdateDialog,
     TResult? Function(ProductTypeModel productType)? navToCompaniesScreen,
   }) {
     return initial?.call();
@@ -488,6 +627,7 @@ class _$HomeScreenInitialImpl implements HomeScreenInitial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? refreshUI,
+    TResult Function()? openUpdateDialog,
     TResult Function(ProductTypeModel productType)? navToCompaniesScreen,
     required TResult orElse(),
   }) {
@@ -503,6 +643,8 @@ class _$HomeScreenInitialImpl implements HomeScreenInitial {
     required TResult Function(HomeScreenInitial value) initial,
     required TResult Function(HomeScreenLoading value) loading,
     required TResult Function(HomeScreenRefreshUI value) refreshUI,
+    required TResult Function(HomeScreenOpenUpdateDialog value)
+        openUpdateDialog,
     required TResult Function(HomeScreenNavToCompaniesScreen value)
         navToCompaniesScreen,
   }) {
@@ -515,6 +657,7 @@ class _$HomeScreenInitialImpl implements HomeScreenInitial {
     TResult? Function(HomeScreenInitial value)? initial,
     TResult? Function(HomeScreenLoading value)? loading,
     TResult? Function(HomeScreenRefreshUI value)? refreshUI,
+    TResult? Function(HomeScreenOpenUpdateDialog value)? openUpdateDialog,
     TResult? Function(HomeScreenNavToCompaniesScreen value)?
         navToCompaniesScreen,
   }) {
@@ -527,6 +670,7 @@ class _$HomeScreenInitialImpl implements HomeScreenInitial {
     TResult Function(HomeScreenInitial value)? initial,
     TResult Function(HomeScreenLoading value)? loading,
     TResult Function(HomeScreenRefreshUI value)? refreshUI,
+    TResult Function(HomeScreenOpenUpdateDialog value)? openUpdateDialog,
     TResult Function(HomeScreenNavToCompaniesScreen value)?
         navToCompaniesScreen,
     required TResult orElse(),
@@ -586,6 +730,7 @@ class _$HomeScreenLoadingImpl implements HomeScreenLoading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() refreshUI,
+    required TResult Function() openUpdateDialog,
     required TResult Function(ProductTypeModel productType)
         navToCompaniesScreen,
   }) {
@@ -598,6 +743,7 @@ class _$HomeScreenLoadingImpl implements HomeScreenLoading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? refreshUI,
+    TResult? Function()? openUpdateDialog,
     TResult? Function(ProductTypeModel productType)? navToCompaniesScreen,
   }) {
     return loading?.call();
@@ -609,6 +755,7 @@ class _$HomeScreenLoadingImpl implements HomeScreenLoading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? refreshUI,
+    TResult Function()? openUpdateDialog,
     TResult Function(ProductTypeModel productType)? navToCompaniesScreen,
     required TResult orElse(),
   }) {
@@ -624,6 +771,8 @@ class _$HomeScreenLoadingImpl implements HomeScreenLoading {
     required TResult Function(HomeScreenInitial value) initial,
     required TResult Function(HomeScreenLoading value) loading,
     required TResult Function(HomeScreenRefreshUI value) refreshUI,
+    required TResult Function(HomeScreenOpenUpdateDialog value)
+        openUpdateDialog,
     required TResult Function(HomeScreenNavToCompaniesScreen value)
         navToCompaniesScreen,
   }) {
@@ -636,6 +785,7 @@ class _$HomeScreenLoadingImpl implements HomeScreenLoading {
     TResult? Function(HomeScreenInitial value)? initial,
     TResult? Function(HomeScreenLoading value)? loading,
     TResult? Function(HomeScreenRefreshUI value)? refreshUI,
+    TResult? Function(HomeScreenOpenUpdateDialog value)? openUpdateDialog,
     TResult? Function(HomeScreenNavToCompaniesScreen value)?
         navToCompaniesScreen,
   }) {
@@ -648,6 +798,7 @@ class _$HomeScreenLoadingImpl implements HomeScreenLoading {
     TResult Function(HomeScreenInitial value)? initial,
     TResult Function(HomeScreenLoading value)? loading,
     TResult Function(HomeScreenRefreshUI value)? refreshUI,
+    TResult Function(HomeScreenOpenUpdateDialog value)? openUpdateDialog,
     TResult Function(HomeScreenNavToCompaniesScreen value)?
         navToCompaniesScreen,
     required TResult orElse(),
@@ -708,6 +859,7 @@ class _$HomeScreenRefreshUIImpl implements HomeScreenRefreshUI {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() refreshUI,
+    required TResult Function() openUpdateDialog,
     required TResult Function(ProductTypeModel productType)
         navToCompaniesScreen,
   }) {
@@ -720,6 +872,7 @@ class _$HomeScreenRefreshUIImpl implements HomeScreenRefreshUI {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? refreshUI,
+    TResult? Function()? openUpdateDialog,
     TResult? Function(ProductTypeModel productType)? navToCompaniesScreen,
   }) {
     return refreshUI?.call();
@@ -731,6 +884,7 @@ class _$HomeScreenRefreshUIImpl implements HomeScreenRefreshUI {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? refreshUI,
+    TResult Function()? openUpdateDialog,
     TResult Function(ProductTypeModel productType)? navToCompaniesScreen,
     required TResult orElse(),
   }) {
@@ -746,6 +900,8 @@ class _$HomeScreenRefreshUIImpl implements HomeScreenRefreshUI {
     required TResult Function(HomeScreenInitial value) initial,
     required TResult Function(HomeScreenLoading value) loading,
     required TResult Function(HomeScreenRefreshUI value) refreshUI,
+    required TResult Function(HomeScreenOpenUpdateDialog value)
+        openUpdateDialog,
     required TResult Function(HomeScreenNavToCompaniesScreen value)
         navToCompaniesScreen,
   }) {
@@ -758,6 +914,7 @@ class _$HomeScreenRefreshUIImpl implements HomeScreenRefreshUI {
     TResult? Function(HomeScreenInitial value)? initial,
     TResult? Function(HomeScreenLoading value)? loading,
     TResult? Function(HomeScreenRefreshUI value)? refreshUI,
+    TResult? Function(HomeScreenOpenUpdateDialog value)? openUpdateDialog,
     TResult? Function(HomeScreenNavToCompaniesScreen value)?
         navToCompaniesScreen,
   }) {
@@ -770,6 +927,7 @@ class _$HomeScreenRefreshUIImpl implements HomeScreenRefreshUI {
     TResult Function(HomeScreenInitial value)? initial,
     TResult Function(HomeScreenLoading value)? loading,
     TResult Function(HomeScreenRefreshUI value)? refreshUI,
+    TResult Function(HomeScreenOpenUpdateDialog value)? openUpdateDialog,
     TResult Function(HomeScreenNavToCompaniesScreen value)?
         navToCompaniesScreen,
     required TResult orElse(),
@@ -783,6 +941,138 @@ class _$HomeScreenRefreshUIImpl implements HomeScreenRefreshUI {
 
 abstract class HomeScreenRefreshUI implements HomeScreenState {
   const factory HomeScreenRefreshUI() = _$HomeScreenRefreshUIImpl;
+}
+
+/// @nodoc
+abstract class _$$HomeScreenOpenUpdateDialogImplCopyWith<$Res> {
+  factory _$$HomeScreenOpenUpdateDialogImplCopyWith(
+          _$HomeScreenOpenUpdateDialogImpl value,
+          $Res Function(_$HomeScreenOpenUpdateDialogImpl) then) =
+      __$$HomeScreenOpenUpdateDialogImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$HomeScreenOpenUpdateDialogImplCopyWithImpl<$Res>
+    extends _$HomeScreenStateCopyWithImpl<$Res,
+        _$HomeScreenOpenUpdateDialogImpl>
+    implements _$$HomeScreenOpenUpdateDialogImplCopyWith<$Res> {
+  __$$HomeScreenOpenUpdateDialogImplCopyWithImpl(
+      _$HomeScreenOpenUpdateDialogImpl _value,
+      $Res Function(_$HomeScreenOpenUpdateDialogImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of HomeScreenState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$HomeScreenOpenUpdateDialogImpl implements HomeScreenOpenUpdateDialog {
+  const _$HomeScreenOpenUpdateDialogImpl();
+
+  @override
+  String toString() {
+    return 'HomeScreenState.openUpdateDialog()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$HomeScreenOpenUpdateDialogImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() refreshUI,
+    required TResult Function() openUpdateDialog,
+    required TResult Function(ProductTypeModel productType)
+        navToCompaniesScreen,
+  }) {
+    return openUpdateDialog();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? refreshUI,
+    TResult? Function()? openUpdateDialog,
+    TResult? Function(ProductTypeModel productType)? navToCompaniesScreen,
+  }) {
+    return openUpdateDialog?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? refreshUI,
+    TResult Function()? openUpdateDialog,
+    TResult Function(ProductTypeModel productType)? navToCompaniesScreen,
+    required TResult orElse(),
+  }) {
+    if (openUpdateDialog != null) {
+      return openUpdateDialog();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(HomeScreenInitial value) initial,
+    required TResult Function(HomeScreenLoading value) loading,
+    required TResult Function(HomeScreenRefreshUI value) refreshUI,
+    required TResult Function(HomeScreenOpenUpdateDialog value)
+        openUpdateDialog,
+    required TResult Function(HomeScreenNavToCompaniesScreen value)
+        navToCompaniesScreen,
+  }) {
+    return openUpdateDialog(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(HomeScreenInitial value)? initial,
+    TResult? Function(HomeScreenLoading value)? loading,
+    TResult? Function(HomeScreenRefreshUI value)? refreshUI,
+    TResult? Function(HomeScreenOpenUpdateDialog value)? openUpdateDialog,
+    TResult? Function(HomeScreenNavToCompaniesScreen value)?
+        navToCompaniesScreen,
+  }) {
+    return openUpdateDialog?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(HomeScreenInitial value)? initial,
+    TResult Function(HomeScreenLoading value)? loading,
+    TResult Function(HomeScreenRefreshUI value)? refreshUI,
+    TResult Function(HomeScreenOpenUpdateDialog value)? openUpdateDialog,
+    TResult Function(HomeScreenNavToCompaniesScreen value)?
+        navToCompaniesScreen,
+    required TResult orElse(),
+  }) {
+    if (openUpdateDialog != null) {
+      return openUpdateDialog(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class HomeScreenOpenUpdateDialog implements HomeScreenState {
+  const factory HomeScreenOpenUpdateDialog() = _$HomeScreenOpenUpdateDialogImpl;
 }
 
 /// @nodoc
@@ -875,6 +1165,7 @@ class _$HomeScreenNavToCompaniesScreenImpl
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() refreshUI,
+    required TResult Function() openUpdateDialog,
     required TResult Function(ProductTypeModel productType)
         navToCompaniesScreen,
   }) {
@@ -887,6 +1178,7 @@ class _$HomeScreenNavToCompaniesScreenImpl
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? refreshUI,
+    TResult? Function()? openUpdateDialog,
     TResult? Function(ProductTypeModel productType)? navToCompaniesScreen,
   }) {
     return navToCompaniesScreen?.call(productType);
@@ -898,6 +1190,7 @@ class _$HomeScreenNavToCompaniesScreenImpl
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? refreshUI,
+    TResult Function()? openUpdateDialog,
     TResult Function(ProductTypeModel productType)? navToCompaniesScreen,
     required TResult orElse(),
   }) {
@@ -913,6 +1206,8 @@ class _$HomeScreenNavToCompaniesScreenImpl
     required TResult Function(HomeScreenInitial value) initial,
     required TResult Function(HomeScreenLoading value) loading,
     required TResult Function(HomeScreenRefreshUI value) refreshUI,
+    required TResult Function(HomeScreenOpenUpdateDialog value)
+        openUpdateDialog,
     required TResult Function(HomeScreenNavToCompaniesScreen value)
         navToCompaniesScreen,
   }) {
@@ -925,6 +1220,7 @@ class _$HomeScreenNavToCompaniesScreenImpl
     TResult? Function(HomeScreenInitial value)? initial,
     TResult? Function(HomeScreenLoading value)? loading,
     TResult? Function(HomeScreenRefreshUI value)? refreshUI,
+    TResult? Function(HomeScreenOpenUpdateDialog value)? openUpdateDialog,
     TResult? Function(HomeScreenNavToCompaniesScreen value)?
         navToCompaniesScreen,
   }) {
@@ -937,6 +1233,7 @@ class _$HomeScreenNavToCompaniesScreenImpl
     TResult Function(HomeScreenInitial value)? initial,
     TResult Function(HomeScreenLoading value)? loading,
     TResult Function(HomeScreenRefreshUI value)? refreshUI,
+    TResult Function(HomeScreenOpenUpdateDialog value)? openUpdateDialog,
     TResult Function(HomeScreenNavToCompaniesScreen value)?
         navToCompaniesScreen,
     required TResult orElse(),

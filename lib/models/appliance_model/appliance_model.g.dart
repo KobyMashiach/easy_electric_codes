@@ -35,6 +35,9 @@ const _$ApplianceCompanyEnumMap = {
   ApplianceCompany.hisense: 'hisense',
   ApplianceCompany.amcor: 'amcor',
   ApplianceCompany.mitsubishi: 'mitsubishi',
+  ApplianceCompany.siemens: 'siemens',
+  ApplianceCompany.tadiran: 'tadiran',
   ApplianceCompany.electra: 'electra',
   ApplianceCompany.tornado: 'tornado',
+  ApplianceCompany.aeg: 'aeg',
 };

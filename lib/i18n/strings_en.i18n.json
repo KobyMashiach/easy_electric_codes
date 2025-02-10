@@ -4,5 +4,8 @@
   "choose_company": "Choose company",
   "search_by_error_code": "Search by error code",
   "home_screen": "Home screen",
-  "contact_us": "Contact us"
+  "contact_us": "Contact us",
+  "new_update_title": "There is a new update!",
+  "new_update_description": "Do you want to update now?",
+  "update": "Update"
 }

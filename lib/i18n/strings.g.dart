@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 12 (6 per locale)
+/// Strings: 18 (9 per locale)
 ///
-/// Built on 2025-02-06 at 18:05 UTC
+/// Built on 2025-02-10 at 14:50 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -154,6 +154,9 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	String get search_by_error_code => 'חיפוש לפי שורת קוד';
 	String get home_screen => 'דף הבית';
 	String get contact_us => 'יצירת קשר';
+	String get new_update_title => 'קיים עדכון חדש!';
+	String get new_update_description => 'לעדכן עכשיו?';
+	String get update => 'עדכן';
 }
 
 // Path: <root>
@@ -186,6 +189,9 @@ class _StringsEn implements Translations {
 	@override String get search_by_error_code => 'Search by error code';
 	@override String get home_screen => 'Home screen';
 	@override String get contact_us => 'Contact us';
+	@override String get new_update_title => 'There is a new update!';
+	@override String get new_update_description => 'Do you want to update now?';
+	@override String get update => 'Update';
 }
 
 /// Flat map(s) containing all translations.
@@ -200,6 +206,9 @@ extension on Translations {
 			case 'search_by_error_code': return 'חיפוש לפי שורת קוד';
 			case 'home_screen': return 'דף הבית';
 			case 'contact_us': return 'יצירת קשר';
+			case 'new_update_title': return 'קיים עדכון חדש!';
+			case 'new_update_description': return 'לעדכן עכשיו?';
+			case 'update': return 'עדכן';
 			default: return null;
 		}
 	}
@@ -214,6 +223,9 @@ extension on _StringsEn {
 			case 'search_by_error_code': return 'Search by error code';
 			case 'home_screen': return 'Home screen';
 			case 'contact_us': return 'Contact us';
+			case 'new_update_title': return 'There is a new update!';
+			case 'new_update_description': return 'Do you want to update now?';
+			case 'update': return 'Update';
 			default: return null;
 		}
 	}

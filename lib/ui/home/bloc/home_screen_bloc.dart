@@ -8,6 +8,7 @@ import 'package:easy_electric_codes/models/appliance_company_enum.dart';
 import 'package:easy_electric_codes/models/electrical_product_enum.dart';
 import 'package:easy_electric_codes/models/error_code_model/error_code_model.dart';
 import 'package:easy_electric_codes/models/language_model.dart';
+import 'package:easy_electric_codes/services/package_info.dart';
 import 'package:easy_electric_codes/services/translates/slang_settings.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
@@ -34,8 +35,12 @@ class HomeScreenBloc extends Bloc<HomeScreenEvent, HomeScreenState> {
             globalProductsHE = await buildJsonProduct(heJson);
             globalProductsEN = await buildJsonProduct(enJson);
             emit(const HomeScreenState.refreshUI());
+            if (globalNeedToUpdate) {
+              emit(const HomeScreenState.openUpdateDialog());
+            }
           }
         },
+        onClickUpdate: (e) async => await launchPlayStore(),
         navToCompaniesScreen: (e) async => emit(
             HomeScreenState.navToCompaniesScreen(productType: e.productType)),
       );

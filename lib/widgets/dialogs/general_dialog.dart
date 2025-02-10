@@ -9,7 +9,7 @@ Widget generalDialog({
   final Color? backgroundColor,
   final Color? primaryColor,
   final Color? buttonsTextColor,
-  final double? buttonsTextSize,
+  final double? buttonsTextSize = 16,
   final double? titleTextSize,
   final double? descriptionTextSize,
   final bool oneButton = false,

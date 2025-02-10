@@ -4,5 +4,8 @@
   "choose_company": "בחר חברה",
   "search_by_error_code": "חיפוש לפי שורת קוד",
   "home_screen": "דף הבית",
-  "contact_us": "יצירת קשר"
+  "contact_us": "יצירת קשר",
+  "new_update_title": "קיים עדכון חדש!",
+  "new_update_description": "לעדכן עכשיו?",
+  "update": "עדכן"
 }
