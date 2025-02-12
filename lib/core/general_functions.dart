@@ -1,4 +1,6 @@
 import 'package:easy_electric_codes/core/consts.dart';
+import 'package:easy_electric_codes/core/global_vars.dart';
+import 'package:easy_electric_codes/services/admob_service.dart';
 
 String getFlag(String name) {
   return switch (name) {
@@ -6,4 +8,13 @@ String getFlag(String name) {
     "usa" || "en" => usaFlag,
     _ => "null",
   };
+}
+
+void globalTapsAddTap() {
+  globalTaps++;
+  final admobService = AdmobService();
+  if (globalTaps == 10) {
+    admobService.showInterstitialAd();
+    globalTaps = 0;
+  }
 }

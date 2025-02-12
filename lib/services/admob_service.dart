@@ -1,5 +1,6 @@
 import 'dart:developer';
 import 'dart:io';
+import 'package:easy_electric_codes/core/global_vars.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
@@ -35,6 +36,7 @@ class AdmobService {
       adLoadCallback: InterstitialAdLoadCallback(
         onAdLoaded: (InterstitialAd ad) {
           _interstitialAd = ad;
+          globalInterstitialAd = ad;
           _isInterstitialLoaded = true;
           log("✅ Interstitial Ad Loaded!");
         },
@@ -47,9 +49,8 @@ class AdmobService {
   }
 
   void showInterstitialAd() {
-    if (_isInterstitialLoaded && _interstitialAd != null) {
+    if ((_isInterstitialLoaded && _interstitialAd != null)) {
       SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
-
       _interstitialAd!.fullScreenContentCallback = FullScreenContentCallback(
         onAdDismissedFullScreenContent: (InterstitialAd ad) {
           ad.dispose();
@@ -62,6 +63,21 @@ class AdmobService {
 
       _interstitialAd!.show();
       _interstitialAd = null;
+    } else if (globalInterstitialAd != null) {
+      SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+      globalInterstitialAd!.fullScreenContentCallback =
+          FullScreenContentCallback(
+        onAdDismissedFullScreenContent: (InterstitialAd ad) {
+          ad.dispose();
+          _isInterstitialLoaded = false;
+          loadInterstitialAd();
+
+          SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+        },
+      );
+
+      globalInterstitialAd!.show();
+      globalInterstitialAd = null;
     } else {
       log('⚠️ Interstitial Ad not loaded yet');
     }
