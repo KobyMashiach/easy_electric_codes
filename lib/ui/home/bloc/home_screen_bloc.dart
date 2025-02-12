@@ -44,8 +44,11 @@ class HomeScreenBloc extends Bloc<HomeScreenEvent, HomeScreenState> {
           }
         },
         onClickUpdate: (e) async => await launchPlayStore(),
-        navToCompaniesScreen: (e) async => emit(
-            HomeScreenState.navToCompaniesScreen(productType: e.productType)),
+        navToCompaniesScreen: (e) async {
+          emit(
+              HomeScreenState.navToCompaniesScreen(productType: e.productType));
+          emit(const HomeScreenState.refreshUI());
+        },
       );
     });
   }

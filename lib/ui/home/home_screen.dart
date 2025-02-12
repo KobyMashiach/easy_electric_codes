@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:easy_electric_codes/core/colors.dart';
 import 'package:easy_electric_codes/core/global_vars.dart';
 import 'package:easy_electric_codes/core/text_styles.dart';
@@ -44,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         listener: (context, state) {
           final bloc = context.read<HomeScreenBloc>();
-
+          log(name: "State name: ", state.runtimeType.toString());
           state.maybeWhen(
               navToCompaniesScreen: (productType) => KheasydevNavigatePage()
                   .pushDuration(
