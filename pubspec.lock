@@ -479,10 +479,10 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "544f26fee860298df8d9b8c8ea69a3226bcac824"
+      resolved-ref: "5fd356f3d05344a74ec7df86eb4bb210f046764a"
       url: "https://github.com/kobymashiach/kh_easy_dev.git"
     source: git
-    version: "0.3.6"
+    version: "0.3.7"
   leak_tracker:
     dependency: transitive
     description:
