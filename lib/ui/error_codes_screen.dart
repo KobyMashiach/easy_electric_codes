@@ -2,9 +2,11 @@ import 'package:easy_electric_codes/core/text_styles.dart';
 import 'package:easy_electric_codes/i18n/strings.g.dart';
 import 'package:easy_electric_codes/models/appliance_model/appliance_model.dart';
 import 'package:easy_electric_codes/models/error_code_model/error_code_model.dart';
+import 'package:easy_electric_codes/services/admob_service.dart';
 import 'package:easy_electric_codes/services/translates/slang_settings.dart';
 import 'package:easy_electric_codes/ui/error_code_screen.dart';
 import 'package:easy_electric_codes/widgets/general/appbar.dart';
+import 'package:easy_electric_codes/widgets/general/bottom_navigation_bars/app_buttons_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:kh_easy_dev/kh_easy_dev.dart';
 import 'package:kh_easy_dev/services/navigate_page.dart';
@@ -94,6 +96,9 @@ class _ErrorCodesScreenState extends State<ErrorCodesScreen> {
             ),
           ),
         ],
+      ),
+      bottomNavigationBar: AppButtonsBottomNavigationBar(
+        child: AdmobService().getBannerAdWidget(),
       ),
     );
   }

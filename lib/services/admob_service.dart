@@ -26,6 +26,7 @@ class AdmobService {
 
   BannerAd? _bannerAd;
   bool _isBannerLoaded = false;
+  final ValueNotifier<BannerAd?> _bannerAdNotifier = ValueNotifier(null);
 
   void loadInterstitialAd() {
     InterstitialAd.load(
@@ -74,12 +75,14 @@ class AdmobService {
       listener: BannerAdListener(
         onAdLoaded: (Ad ad) {
           _isBannerLoaded = true;
+          _bannerAdNotifier.value = _bannerAd;
           log("✅ Banner Ad Loaded!");
         },
         onAdFailedToLoad: (Ad ad, LoadAdError error) {
           log('❌ Banner Ad failed to load: $error');
           ad.dispose();
           _isBannerLoaded = false;
+          _bannerAdNotifier.value = null;
         },
       ),
     );
@@ -88,14 +91,20 @@ class AdmobService {
   }
 
   Widget getBannerAdWidget() {
-    if (_isBannerLoaded && _bannerAd != null) {
-      return SizedBox(
-        height: _bannerAd!.size.height.toDouble(),
-        width: _bannerAd!.size.width.toDouble(),
-        child: AdWidget(ad: _bannerAd!),
-      );
-    } else {
-      return const SizedBox.shrink();
-    }
+    return ValueListenableBuilder(
+      valueListenable: _bannerAdNotifier,
+      builder: (context, BannerAd? bannerAd, child) {
+        if (bannerAd != null && _isBannerLoaded) {
+          return SizedBox(
+            height: bannerAd.size.height.toDouble(),
+            width: bannerAd.size.width.toDouble(),
+            child: AdWidget(ad: bannerAd),
+          );
+        } else {
+          loadBannerAd();
+          return const SizedBox.shrink();
+        }
+      },
+    );
   }
 }

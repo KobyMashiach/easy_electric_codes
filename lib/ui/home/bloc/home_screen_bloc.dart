@@ -30,10 +30,9 @@ class HomeScreenBloc extends Bloc<HomeScreenEvent, HomeScreenState> {
     on<HomeScreenEvent>((event, emit) async {
       await event.map(
         initialize: (e) async {
-          final admobService = AdmobService();
-          admobService.loadInterstitialAd();
-          admobService.loadBannerAd();
           if (globalProductsHE.isEmpty || globalProductsEN.isEmpty) {
+            final admobService = AdmobService();
+            admobService.loadInterstitialAd();
             emit(const HomeScreenState.loading());
             await initLanguage();
             globalProductsHE = await buildJsonProduct(heJson);

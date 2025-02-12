@@ -1,5 +1,7 @@
 import 'package:easy_electric_codes/i18n/strings.g.dart';
+import 'package:easy_electric_codes/services/admob_service.dart';
 import 'package:easy_electric_codes/widgets/general/appbar.dart';
+import 'package:easy_electric_codes/widgets/general/bottom_navigation_bars/app_buttons_bottom_navigation_bar.dart';
 import 'package:easy_electric_codes/widgets/general/side_menu_v2.dart';
 import 'package:flutter/material.dart';
 
@@ -46,6 +48,9 @@ class _SearchByCodeScreenState extends State<SearchByCodeScreen> {
             ),
           ),
         ],
+      ),
+      bottomNavigationBar: AppButtonsBottomNavigationBar(
+        child: AdmobService().getBannerAdWidget(),
       ),
     );
   }
