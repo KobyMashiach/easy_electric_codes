@@ -4,11 +4,13 @@ import 'package:easy_electric_codes/ui/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:easy_electric_codes/services/package_info.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await getAppFutureInfo();
   globalNeedToUpdate = await checkForUpdate();
+  MobileAds.instance.initialize();
   runApp(TranslationProvider(child: const MyApp()));
 }
 
