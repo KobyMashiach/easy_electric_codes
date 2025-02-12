@@ -1,5 +1,6 @@
 import 'dart:developer';
 import 'dart:io';
+import 'package:flutter/services.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class AdmobService {
@@ -12,6 +13,7 @@ class AdmobService {
   }
 
   InterstitialAd? _interstitialAd;
+  bool _isAdLoaded = false;
 
   void loadInterstitialAd() {
     InterstitialAd.load(
@@ -20,20 +22,35 @@ class AdmobService {
       adLoadCallback: InterstitialAdLoadCallback(
         onAdLoaded: (InterstitialAd ad) {
           _interstitialAd = ad;
+          _isAdLoaded = true;
+          log("Interstitial Ad Loaded!");
         },
         onAdFailedToLoad: (LoadAdError error) {
           log('Interstitial Ad failed to load: $error');
+          _isAdLoaded = false;
         },
       ),
     );
   }
 
   void showInterstitialAd() {
-    if (_interstitialAd != null) {
+    if (_isAdLoaded && _interstitialAd != null) {
+      SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+
+      _interstitialAd!.fullScreenContentCallback = FullScreenContentCallback(
+        onAdDismissedFullScreenContent: (InterstitialAd ad) {
+          ad.dispose();
+          _isAdLoaded = false;
+          loadInterstitialAd();
+
+          SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+        },
+      );
+
       _interstitialAd!.show();
-      _interstitialAd = null; // Reset after displaying
+      _interstitialAd = null;
     } else {
-      log('Ad not loaded yet');
+      print('Ad not loaded yet');
     }
   }
 }

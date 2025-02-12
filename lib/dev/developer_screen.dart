@@ -1,19 +1,19 @@
+import 'package:easy_electric_codes/services/admob_service.dart';
 import 'package:easy_electric_codes/widgets/general/appbar.dart';
 import 'package:flutter/material.dart';
 
 class DeveloperScreen extends StatelessWidget {
   const DeveloperScreen({super.key});
 
-  List<Map<String, dynamic>> settingsOptions(BuildContext context) {
+  List<Map<String, dynamic>> settingsOptions(
+      BuildContext context, AdmobService admobService) {
     final List<Map<String, dynamic>> settingOptions = [
       {
-        // 'title': "Navigate to fill details screen",
-        // 'icon': Icons.navigation_outlined,
-        // 'function': () => KheasydevNavigatePage().push(
-        //     context,
-        //     FillDetailsScreen(
-        //       onSave: (firstName, lastName, image) {},
-        //     ))
+        'title': "Check Interstitial Ad",
+        'icon': Icons.ad_units,
+        'function': () {
+          admobService.showInterstitialAd();
+        }
       },
     ];
     return settingOptions;
@@ -21,7 +21,9 @@ class DeveloperScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final settingOptions = settingsOptions(context);
+    final admobService = AdmobService();
+    admobService.loadInterstitialAd();
+    final settingOptions = settingsOptions(context, admobService);
     return Scaffold(
       appBar: appAppBar(title: "Developer Screen"),
       body: Padding(
