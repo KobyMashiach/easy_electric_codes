@@ -1,5 +1,6 @@
 import 'dart:developer';
 import 'dart:io';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
@@ -12,8 +13,19 @@ class AdmobService {
     }
   }
 
+  static String? get bannerAdUnitId {
+    if (Platform.isAndroid) {
+      return 'ca-app-pub-1691633944477228/5439245118';
+    } else {
+      return null;
+    }
+  }
+
   InterstitialAd? _interstitialAd;
-  bool _isAdLoaded = false;
+  bool _isInterstitialLoaded = false;
+
+  BannerAd? _bannerAd;
+  bool _isBannerLoaded = false;
 
   void loadInterstitialAd() {
     InterstitialAd.load(
@@ -22,25 +34,25 @@ class AdmobService {
       adLoadCallback: InterstitialAdLoadCallback(
         onAdLoaded: (InterstitialAd ad) {
           _interstitialAd = ad;
-          _isAdLoaded = true;
-          log("Interstitial Ad Loaded!");
+          _isInterstitialLoaded = true;
+          log("✅ Interstitial Ad Loaded!");
         },
         onAdFailedToLoad: (LoadAdError error) {
-          log('Interstitial Ad failed to load: $error');
-          _isAdLoaded = false;
+          log('❌ Interstitial Ad failed to load: $error');
+          _isInterstitialLoaded = false;
         },
       ),
     );
   }
 
   void showInterstitialAd() {
-    if (_isAdLoaded && _interstitialAd != null) {
+    if (_isInterstitialLoaded && _interstitialAd != null) {
       SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
 
       _interstitialAd!.fullScreenContentCallback = FullScreenContentCallback(
         onAdDismissedFullScreenContent: (InterstitialAd ad) {
           ad.dispose();
-          _isAdLoaded = false;
+          _isInterstitialLoaded = false;
           loadInterstitialAd();
 
           SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
@@ -50,7 +62,40 @@ class AdmobService {
       _interstitialAd!.show();
       _interstitialAd = null;
     } else {
-      print('Ad not loaded yet');
+      log('⚠️ Interstitial Ad not loaded yet');
+    }
+  }
+
+  void loadBannerAd() {
+    _bannerAd = BannerAd(
+      adUnitId: bannerAdUnitId!,
+      size: AdSize.banner,
+      request: const AdRequest(),
+      listener: BannerAdListener(
+        onAdLoaded: (Ad ad) {
+          _isBannerLoaded = true;
+          log("✅ Banner Ad Loaded!");
+        },
+        onAdFailedToLoad: (Ad ad, LoadAdError error) {
+          log('❌ Banner Ad failed to load: $error');
+          ad.dispose();
+          _isBannerLoaded = false;
+        },
+      ),
+    );
+
+    _bannerAd!.load();
+  }
+
+  Widget getBannerAdWidget() {
+    if (_isBannerLoaded && _bannerAd != null) {
+      return SizedBox(
+        height: _bannerAd!.size.height.toDouble(),
+        width: _bannerAd!.size.width.toDouble(),
+        child: AdWidget(ad: _bannerAd!),
+      );
+    } else {
+      return const SizedBox.shrink();
     }
   }
 }

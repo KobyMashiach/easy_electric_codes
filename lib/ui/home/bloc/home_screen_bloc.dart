@@ -8,6 +8,7 @@ import 'package:easy_electric_codes/models/appliance_company_enum.dart';
 import 'package:easy_electric_codes/models/electrical_product_enum.dart';
 import 'package:easy_electric_codes/models/error_code_model/error_code_model.dart';
 import 'package:easy_electric_codes/models/language_model.dart';
+import 'package:easy_electric_codes/services/admob_service.dart';
 import 'package:easy_electric_codes/services/package_info.dart';
 import 'package:easy_electric_codes/services/translates/slang_settings.dart';
 import 'package:flutter/services.dart' show rootBundle;
@@ -29,6 +30,9 @@ class HomeScreenBloc extends Bloc<HomeScreenEvent, HomeScreenState> {
     on<HomeScreenEvent>((event, emit) async {
       await event.map(
         initialize: (e) async {
+          final admobService = AdmobService();
+          admobService.loadInterstitialAd();
+          admobService.loadBannerAd();
           if (globalProductsHE.isEmpty || globalProductsEN.isEmpty) {
             emit(const HomeScreenState.loading());
             await initLanguage();

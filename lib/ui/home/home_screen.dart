@@ -3,12 +3,14 @@ import 'package:easy_electric_codes/core/global_vars.dart';
 import 'package:easy_electric_codes/core/text_styles.dart';
 import 'package:easy_electric_codes/i18n/strings.g.dart';
 import 'package:easy_electric_codes/models/product_type_model/product_type_model.dart';
+import 'package:easy_electric_codes/services/admob_service.dart';
 import 'package:easy_electric_codes/services/translates/slang_settings.dart';
 import 'package:easy_electric_codes/ui/companies_screen.dart';
 import 'package:easy_electric_codes/ui/home/bloc/home_screen_bloc.dart';
 import 'package:easy_electric_codes/widgets/design/general/carousel_widgets.dart';
 import 'package:easy_electric_codes/widgets/dialogs/general_dialog.dart';
 import 'package:easy_electric_codes/widgets/general/appbar.dart';
+import 'package:easy_electric_codes/widgets/general/bottom_navigation_bars/app_buttons_bottom_navigation_bar.dart';
 import 'package:easy_electric_codes/widgets/general/circular_progress_image.dart';
 import 'package:easy_electric_codes/widgets/general/language_dropdown.dart';
 import 'package:easy_electric_codes/widgets/general/side_menu_v2.dart';
@@ -92,6 +94,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
               ),
+            ),
+            bottomNavigationBar: AppButtonsBottomNavigationBar(
+              child: AdmobService().getBannerAdWidget(),
             ),
           );
         },

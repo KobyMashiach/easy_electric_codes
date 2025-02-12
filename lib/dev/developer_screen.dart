@@ -1,4 +1,5 @@
 import 'package:easy_electric_codes/services/admob_service.dart';
+import 'package:easy_electric_codes/widgets/dialogs/general_dialog.dart';
 import 'package:easy_electric_codes/widgets/general/appbar.dart';
 import 'package:flutter/material.dart';
 
@@ -15,6 +16,17 @@ class DeveloperScreen extends StatelessWidget {
           admobService.showInterstitialAd();
         }
       },
+      {
+        'title': "Check banner Ad",
+        'icon': Icons.ad_units,
+        'function': () {
+          final bannerWidget = admobService.getBannerAdWidget();
+          showDialog(
+            context: context,
+            builder: (context) => generalDialog(child: bannerWidget),
+          );
+        }
+      },
     ];
     return settingOptions;
   }
@@ -23,6 +35,7 @@ class DeveloperScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final admobService = AdmobService();
     admobService.loadInterstitialAd();
+    admobService.loadBannerAd();
     final settingOptions = settingsOptions(context, admobService);
     return Scaffold(
       appBar: appAppBar(title: "Developer Screen"),
