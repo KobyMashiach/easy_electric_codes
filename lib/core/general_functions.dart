@@ -13,7 +13,7 @@ String getFlag(String name) {
 void globalTapsAddTap() {
   globalTaps++;
   final admobService = AdmobService();
-  if (globalTaps == 10) {
+  if (globalTaps == 20) {
     admobService.showInterstitialAd();
     globalTaps = 0;
   }
