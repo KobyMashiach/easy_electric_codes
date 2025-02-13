@@ -479,7 +479,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "5fd356f3d05344a74ec7df86eb4bb210f046764a"
+      resolved-ref: "216d62d80668d0de0ec6cfcbd4d64c3cd08b1cd5"
       url: "https://github.com/kobymashiach/kh_easy_dev.git"
     source: git
     version: "0.3.7"
